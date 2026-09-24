@@ -232,29 +232,84 @@ def _num(v):
         return None
 
 
-def fetch_fundamentals(code, close):
-    """PER・PBR・ROE・配当利回り・売上の伸び・時価総額を取得。取れない項目は None。"""
+FUND_CACHE_PATH = os.path.join(HERE, "docs", "fundamentals.json")
+FUND_MAX_AGE_DAYS = 7   # 業績データはこの日数ごとに取り直す（毎日全部取り直すとYahooに断られるため）
+_fund_cache = None
+_fund_fail = 0
+
+
+def _load_fund_cache():
+    global _fund_cache
+    if _fund_cache is None:
+        try:
+            with open(FUND_CACHE_PATH, encoding="utf-8") as fp:
+                _fund_cache = json.load(fp)
+        except Exception:
+            _fund_cache = {}
+    return _fund_cache
+
+
+def save_fund_cache():
+    if _fund_cache is not None:
+        os.makedirs(os.path.dirname(FUND_CACHE_PATH), exist_ok=True)
+        with open(FUND_CACHE_PATH, "w", encoding="utf-8") as fp:
+            json.dump(_fund_cache, fp, ensure_ascii=False)
+
+
+def _fetch_raw(code):
+    """Yahoo Financeから業績データを取る。断られたら間をあけて最大3回やり直す。"""
     import yfinance as yf
-    info = {}
-    for attempt in range(3):
+    for wait in (5, 20, 60):
         try:
             info = yf.Ticker(f"{code}.T").info or {}
-            break
+            if any(k in info for k in ("marketCap", "trailingPE", "priceToBook", "returnOnEquity")):
+                return {
+                    "per": _num(info.get("trailingPE")),
+                    "pbr": _num(info.get("priceToBook")),
+                    "roe": _num(info.get("returnOnEquity")),
+                    "growth": _num(info.get("revenueGrowth")),
+                    "rate": _num(info.get("dividendRate")) or _num(info.get("trailingAnnualDividendRate")),
+                    "cap": _num(info.get("marketCap")),
+                }
+        except Exception as e:
+            log(f"  業績データ取得失敗 {code}: {e}")
+        time.sleep(wait)
+    return None
+
+
+def fetch_fundamentals(code, close):
+    """PER・PBR・ROE・配当利回り・売上の伸び・時価総額を返す。取れない項目は None。
+    一度取ったデータは docs/fundamentals.json に保存し、古くなったものだけ取り直す。"""
+    global _fund_fail
+    cache = _load_fund_cache()
+    today = dt.datetime.now(JST).date()
+    ent = cache.get(code)
+    fresh = False
+    if ent:
+        try:
+            fresh = (today - dt.date.fromisoformat(ent["date"])).days < FUND_MAX_AGE_DAYS
         except Exception:
-            time.sleep(3 * (attempt + 1))
-    per = _num(info.get("trailingPE"))
-    pbr = _num(info.get("priceToBook"))
-    roe = _num(info.get("returnOnEquity"))
-    growth = _num(info.get("revenueGrowth"))
-    rate = _num(info.get("dividendRate")) or _num(info.get("trailingAnnualDividendRate"))
-    cap = _num(info.get("marketCap"))
+            fresh = False
+    if not fresh and _fund_fail < 5:
+        raw = _fetch_raw(code)
+        time.sleep(1)
+        if raw:
+            _fund_fail = 0
+            ent = {"date": today.isoformat(), **raw}
+            cache[code] = ent
+        else:
+            _fund_fail += 1
+            if _fund_fail == 5:
+                log("  業績データが続けて取れないため、今回は保存済みのデータだけを使います")
+    raw = ent or {}
+    per, pbr, roe, growth, rate = (raw.get(k) for k in ("per", "pbr", "roe", "growth", "rate"))
     return {
         "per": per if per and per > 0 else None,
         "pbr": pbr if pbr and pbr > 0 else None,
         "roe": roe * 100 if roe is not None else None,
         "div": rate / close * 100 if rate and close else None,
         "growth": growth * 100 if growth is not None else None,
-        "cap": cap,
+        "cap": raw.get("cap"),
     }
 
 
@@ -528,7 +583,6 @@ def main():
         if not sigs:
             continue
         f = fetch_fundamentals(code, info["close"])
-        time.sleep(0.2)
         checks = fund_checks(f)
         score = sum(1 for v in checks.values() if v)
         merged = {}
@@ -549,6 +603,9 @@ def main():
     }
     stats = {"universe": len(universe), "downloaded": len(prices), "liquid": liquid}
     os.makedirs(os.path.join(HERE, "docs"), exist_ok=True)
+    save_fund_cache()
+    n_fund = sum(1 for r in rows if r["fund"]["cap"] is not None or r["fund"]["per"] is not None)
+    log(f"業績データあり：{n_fund}/{len(rows)}件")
     with open(os.path.join(HERE, "docs", "index.html"), "w", encoding="utf-8") as fp:
         fp.write(build_html(rows, stats, updated))
     with open(os.path.join(HERE, "docs", "signals.json"), "w", encoding="utf-8") as fp:
