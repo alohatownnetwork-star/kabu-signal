@@ -7,29 +7,40 @@
 <style>
 :root { --bg:#f6f7f9; --card:#fff; --text:#1c1f24; --sub:#6b7280; --line:#e5e7eb; --chip:#f1f3f5;
         --buy:#16a34a; --sell:#dc2626; --watch:#ca8a04; --caution:#ea580c; --up:#dc2626; --down:#2563eb;
-        --good:#15803d; --goodbg:#dcfce7; --star:#b45309; }
+        --good:#15803d; --goodbg:#dcfce7; --star:#b45309; --accent:#2563eb; --accentbg:#dbeafe; --fav:#a16207; --favbg:#fef3c7; }
 @media (prefers-color-scheme: dark) {
   :root { --bg:#111418; --card:#1b1f25; --text:#e8eaed; --sub:#9aa0a6; --line:#2c323a; --chip:#242a31;
-          --up:#f87171; --down:#60a5fa; --good:#4ade80; --goodbg:#14301f; --star:#fbbf24; }
+          --up:#f87171; --down:#60a5fa; --good:#4ade80; --goodbg:#14301f; --star:#fbbf24;
+          --accent:#93c5fd; --accentbg:#1e3a5f; --fav:#fcd34d; --favbg:#3a2e0b; }
 }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--text);
        font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI",sans-serif; }
 main { max-width:640px; margin:0 auto; padding:16px; }
 h1 { font-size:20px; margin:4px 0; }
-.meta { color:var(--sub); font-size:13px; margin-bottom:12px; }
-.filter { display:flex; gap:8px; align-items:center; font-size:14px; margin:12px 0 4px;
-          background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 12px; }
+.meta { color:var(--sub); font-size:13px; margin-bottom:12px; line-height:1.5; }
+.panel { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:12px 0 4px;
+         position:sticky; top:0; z-index:5; }
+.seg { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
+.seg button { font:inherit; font-size:13px; border:1px solid var(--line); background:var(--chip); color:var(--text);
+              border-radius:999px; padding:4px 12px; cursor:pointer; }
+.seg button.on { background:var(--accentbg); color:var(--accent); border-color:var(--accent); font-weight:600; }
+.chk { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }
+.chk label { display:flex; gap:6px; align-items:center; }
 h2 { font-size:16px; margin:20px 0 8px; }
 h2 small { color:var(--sub); font-weight:normal; }
 .card { display:block; text-decoration:none; color:inherit; background:var(--card);
         border:1px solid var(--line); border-left:4px solid var(--line); border-radius:10px;
         padding:10px 12px; margin-bottom:8px; }
+.card[data-fav="1"] { outline:2px solid var(--fav); outline-offset:-1px; }
 .buy .card { border-left-color:var(--buy); } .sell .card { border-left-color:var(--sell); }
 .watch .card { border-left-color:var(--watch); } .caution .card { border-left-color:var(--caution); }
 .top { display:flex; justify-content:space-between; gap:8px; }
 .name { font-weight:600; } .code { color:var(--sub); font-size:13px; }
-.reason { font-size:14px; margin:4px 0; }
+.tags { display:flex; gap:4px; flex-wrap:wrap; margin-top:4px; }
+.tags span { font-size:11px; border-radius:4px; padding:1px 6px; background:var(--chip); color:var(--sub); }
+.tags .favmark { background:var(--favbg); color:var(--fav); font-weight:600; }
+.reason { font-size:14px; margin:6px 0 4px; }
 .nums { display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px 12px; font-size:13px; color:var(--sub); }
 .nums b { color:var(--text); } .up { color:var(--up); } .down { color:var(--down); }
 .score { font-size:13px; color:var(--star); margin-top:6px; }
@@ -39,275 +50,53 @@ h2 small { color:var(--sub); font-weight:normal; }
 .f b { color:var(--text); font-weight:600; }
 .f.good { background:var(--goodbg); color:var(--good); } .f.good b { color:var(--good); }
 .empty { color:var(--sub); font-size:14px; }
-body.only-star .card:not(.star) { display:none; }
+.card.hide { display:none; }
 .note { color:var(--sub); font-size:12px; line-height:1.6; margin-top:24px; }
 </style>
 </head>
 <body>
 <main>
   <h1>朝の売買シグナル</h1>
-  <div class="meta">株価の日付：2026-09-24 ／ 更新：2026-09-24 18:20<br>
-  見張り 225銘柄（取得できた 225銘柄）</div>
-  <label class="filter"><input type="checkbox" id="star"> ファンダ★3つ以上の銘柄だけ表示</label>
-  <section class="buy"><h2>🟢 買い <small>10件</small></h2>
-      <a class="card star" href="https://kabutan.jp/stock/?code=4183" target="_blank" rel="noopener">
-        <div class="top"><span class="name">三井化学</span><span class="code">4183</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>2,150円</b> <span class="down">-1.6%</span></span>
-          <span>100株 215,000円</span>
-        </div>
-        <div class="score">ファンダ ★★★★☆ <small>4/5</small></div>
-        <div class="fund"><span class="f">PER <b>23.5倍</b></span><span class="f good">PBR <b>0.89倍</b> ○</span><span class="f good">ROE <b>8.0%</b> ○</span><span class="f good">配当 <b>3.49%</b> ○</span><span class="f good">売上の伸び <b>10.8%</b> ○</span><span class="f">時価総額 <b>7,773億円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=7267" target="_blank" rel="noopener">
-        <div class="top"><span class="name">本田技研工業</span><span class="code">7267</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>1,733円</b> <span class="up">+2.6%</span></span>
-          <span>100株 173,300円</span>
-        </div>
-        <div class="score">ファンダ ★★★☆☆ <small>3/5</small></div>
-        <div class="fund"><span class="f">PER <b>-</b></span><span class="f good">PBR <b>0.55倍</b> ○</span><span class="f">ROE <b>-0.8%</b></span><span class="f good">配当 <b>4.04%</b> ○</span><span class="f good">売上の伸び <b>13.5%</b> ○</span><span class="f">時価総額 <b>6.7兆円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=4902" target="_blank" rel="noopener">
-        <div class="top"><span class="name">コニカミノルタ</span><span class="code">4902</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>661円</b> <span class="up">+3.1%</span></span>
-          <span>100株 66,110円</span>
-        </div>
-        <div class="score">ファンダ ★★★☆☆ <small>3/5</small></div>
-        <div class="fund"><span class="f good">PER <b>10.2倍</b> ○</span><span class="f good">PBR <b>0.59倍</b> ○</span><span class="f">ROE <b>6.5%</b></span><span class="f">配当 <b>2.72%</b></span><span class="f good">売上の伸び <b>2.9%</b> ○</span><span class="f">時価総額 <b>3,267億円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=6971" target="_blank" rel="noopener">
-        <div class="top"><span class="name">京セラ</span><span class="code">6971</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>3,650円</b> <span class="up">+0.4%</span></span>
-          <span>100株 365,000円</span>
-        </div>
-        <div class="score">ファンダ ★★☆☆☆ <small>2/5</small></div>
-        <div class="fund"><span class="f">PER <b>35.6倍</b></span><span class="f good">PBR <b>1.43倍</b> ○</span><span class="f">ROE <b>5.1%</b></span><span class="f">配当 <b>1.53%</b></span><span class="f good">売上の伸び <b>9.9%</b> ○</span><span class="f">時価総額 <b>4.7兆円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=4188" target="_blank" rel="noopener">
-        <div class="top"><span class="name">三菱ケミカルグループ</span><span class="code">4188</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>1,172円</b> <span class="down">-1.4%</span></span>
-          <span>100株 117,200円</span>
-        </div>
-        <div class="score">ファンダ ★★☆☆☆ <small>2/5</small></div>
-        <div class="fund"><span class="f">PER <b>-</b></span><span class="f good">PBR <b>0.87倍</b> ○</span><span class="f">ROE <b>1.4%</b></span><span class="f">配当 <b>2.73%</b></span><span class="f good">売上の伸び <b>14.0%</b> ○</span><span class="f">時価総額 <b>1.6兆円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=5301" target="_blank" rel="noopener">
-        <div class="top"><span class="name">東海カーボン</span><span class="code">5301</span></div>
-        <div class="reason">出来高2.4倍で1年来高値を更新</div>
-        <div class="nums">
-          <span>終値 <b>2,273円</b> <span class="up">+6.8%</span></span>
-          <span>100株 227,300円</span>
-        </div>
-        <div class="score">ファンダ ★★☆☆☆ <small>2/5</small></div>
-        <div class="fund"><span class="f">PER <b>25.6倍</b></span><span class="f good">PBR <b>1.43倍</b> ○</span><span class="f">ROE <b>6.8%</b></span><span class="f">配当 <b>1.76%</b></span><span class="f good">売上の伸び <b>18.4%</b> ○</span><span class="f">時価総額 <b>4,599億円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=6302" target="_blank" rel="noopener">
-        <div class="top"><span class="name">住友重機械工業</span><span class="code">6302</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>5,921円</b> <span class="down">-1.0%</span></span>
-          <span>100株 592,100円</span>
-        </div>
-        <div class="score">ファンダ ★★☆☆☆ <small>2/5</small></div>
-        <div class="fund"><span class="f">PER <b>17.5倍</b></span><span class="f good">PBR <b>1.00倍</b> ○</span><span class="f">ROE <b>6.1%</b></span><span class="f">配当 <b>2.45%</b></span><span class="f good">売上の伸び <b>18.0%</b> ○</span><span class="f">時価総額 <b>7,022億円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=6526" target="_blank" rel="noopener">
-        <div class="top"><span class="name">ソシオネクスト</span><span class="code">6526</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>2,300円</b> <span class="up">+15.0%</span></span>
-          <span>100株 230,000円</span>
-        </div>
-        <div class="score">ファンダ ★☆☆☆☆ <small>1/5</small></div>
-        <div class="fund"><span class="f">PER <b>46.6倍</b></span><span class="f">PBR <b>3.14倍</b></span><span class="f">ROE <b>6.0%</b></span><span class="f">配当 <b>2.17%</b></span><span class="f good">売上の伸び <b>13.0%</b> ○</span><span class="f">時価総額 <b>4,032億円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=6752" target="_blank" rel="noopener">
-        <div class="top"><span class="name">パナソニック ホールディングス</span><span class="code">6752</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>4,508円</b> <span class="up">+5.2%</span></span>
-          <span>100株 450,800円</span>
-        </div>
-        <div class="score">ファンダ ★☆☆☆☆ <small>1/5</small></div>
-        <div class="fund"><span class="f">PER <b>55.6倍</b></span><span class="f">PBR <b>1.95倍</b></span><span class="f">ROE <b>5.2%</b></span><span class="f">配当 <b>1.20%</b></span><span class="f good">売上の伸び <b>6.4%</b> ○</span><span class="f">時価総額 <b>10.5兆円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=8697" target="_blank" rel="noopener">
-        <div class="top"><span class="name">日本取引所グループ</span><span class="code">8697</span></div>
-        <div class="reason">ゴールデンクロス（5日平均が25日平均を上抜け）</div>
-        <div class="nums">
-          <span>終値 <b>2,274円</b> <span class="up">+1.7%</span></span>
-          <span>100株 227,400円</span>
-        </div>
-        <div class="score">ファンダ ★☆☆☆☆ <small>1/5</small></div>
-        <div class="fund"><span class="f">PER <b>38.7倍</b></span><span class="f">PBR <b>7.22倍</b></span><span class="f">ROE <b>-</b></span><span class="f good">配当 <b>3.43%</b> ○</span><span class="f">売上の伸び <b>-</b></span><span class="f">時価総額 <b>2.3兆円</b></span></div>
-      </a></section><section class="sell"><h2>🔴 売り <small>12件</small></h2>
-      <a class="card" href="https://kabutan.jp/stock/?code=9843" target="_blank" rel="noopener">
-        <div class="top"><span class="name">ニトリホールディングス</span><span class="code">9843</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>3,034円</b> <span class="up">+0.1%</span></span>
-          <span>100株 303,400円</span>
-        </div>
-        <div class="score">ファンダ ★☆☆☆☆ <small>1/5</small></div>
-        <div class="fund"><span class="f">PER <b>19.2倍</b></span><span class="f">PBR <b>1.70倍</b></span><span class="f good">ROE <b>9.2%</b> ○</span><span class="f">配当 <b>1.05%</b></span><span class="f">売上の伸び <b>-2.3%</b></span><span class="f">時価総額 <b>1.7兆円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=4324" target="_blank" rel="noopener">
-        <div class="top"><span class="name">電通グループ</span><span class="code">4324</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>3,561円</b> <span class="down">-0.8%</span></span>
-          <span>100株 356,100円</span>
-        </div>
-        <div class="score">ファンダ ★☆☆☆☆ <small>1/5</small></div>
-        <div class="fund"><span class="f">PER <b>-</b></span><span class="f">PBR <b>2.18倍</b></span><span class="f">ROE <b>-34.9%</b></span><span class="f">配当 <b>-</b></span><span class="f good">売上の伸び <b>6.3%</b> ○</span><span class="f">時価総額 <b>9,244億円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=4661" target="_blank" rel="noopener">
-        <div class="top"><span class="name">オリエンタルランド</span><span class="code">4661</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>2,956円</b> <span class="down">-2.6%</span></span>
-          <span>100株 295,650円</span>
-        </div>
-        <div class="score">ファンダ ★☆☆☆☆ <small>1/5</small></div>
-        <div class="fund"><span class="f">PER <b>39.8倍</b></span><span class="f">PBR <b>4.30倍</b></span><span class="f">ROE <b>-</b></span><span class="f">配当 <b>0.54%</b></span><span class="f good">売上の伸び <b>10.4%</b> ○</span><span class="f">時価総額 <b>4.8兆円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=8308" target="_blank" rel="noopener">
-        <div class="top"><span class="name">りそなホールディングス</span><span class="code">8308</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>2,419円</b> <span class="down">-1.3%</span></span>
-          <span>100株 241,900円</span>
-        </div>
-        <div class="score">ファンダ ★★☆☆☆ <small>2/5</small></div>
-        <div class="fund"><span class="f">PER <b>21.3倍</b></span><span class="f">PBR <b>1.80倍</b></span><span class="f good">ROE <b>9.2%</b> ○</span><span class="f">配当 <b>1.53%</b></span><span class="f good">売上の伸び <b>15.8%</b> ○</span><span class="f">時価総額 <b>5.4兆円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=8316" target="_blank" rel="noopener">
-        <div class="top"><span class="name">三井住友フィナンシャルグループ</span><span class="code">8316</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>6,679円</b> <span class="down">-2.2%</span></span>
-          <span>100株 667,900円</span>
-        </div>
-        <div class="score">ファンダ ★★★☆☆ <small>3/5</small></div>
-        <div class="fund"><span class="f good">PER <b>15.0倍</b> ○</span><span class="f">PBR <b>1.58倍</b></span><span class="f good">ROE <b>8.6%</b> ○</span><span class="f">配当 <b>1.35%</b></span><span class="f good">売上の伸び <b>24.8%</b> ○</span><span class="f">時価総額 <b>25.4兆円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=8354" target="_blank" rel="noopener">
-        <div class="top"><span class="name">ふくおかフィナンシャルグループ</span><span class="code">8354</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>7,659円</b> <span class="down">-1.1%</span></span>
-          <span>100株 765,900円</span>
-        </div>
-        <div class="score">ファンダ ★★★☆☆ <small>3/5</small></div>
-        <div class="fund"><span class="f">PER <b>16.9倍</b></span><span class="f good">PBR <b>1.29倍</b> ○</span><span class="f good">ROE <b>8.7%</b> ○</span><span class="f">配当 <b>2.74%</b></span><span class="f good">売上の伸び <b>13.1%</b> ○</span><span class="f">時価総額 <b>1.4兆円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=2002" target="_blank" rel="noopener">
-        <div class="top"><span class="name">日清製粉グループ本社</span><span class="code">2002</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>2,014円</b> <span class="up">+0.8%</span></span>
-          <span>100株 201,350円</span>
-        </div>
-        <div class="score">ファンダ ★★★☆☆ <small>3/5</small></div>
-        <div class="fund"><span class="f">PER <b>17.8倍</b></span><span class="f good">PBR <b>1.09倍</b> ○</span><span class="f">ROE <b>6.1%</b></span><span class="f good">配当 <b>3.23%</b> ○</span><span class="f good">売上の伸び <b>1.1%</b> ○</span><span class="f">時価総額 <b>5,633億円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=3382" target="_blank" rel="noopener">
-        <div class="top"><span class="name">セブン&amp;アイ・ホールディングス</span><span class="code">3382</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>2,000円</b> <span class="down">-1.0%</span></span>
-          <span>100株 200,000円</span>
-        </div>
-        <div class="score">ファンダ ★★★☆☆ <small>3/5</small></div>
-        <div class="fund"><span class="f">PER <b>16.8倍</b></span><span class="f good">PBR <b>1.25倍</b> ○</span><span class="f good">ROE <b>8.0%</b> ○</span><span class="f good">配当 <b>3.00%</b> ○</span><span class="f">売上の伸び <b>-14.7%</b></span><span class="f">時価総額 <b>4.5兆円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=8002" target="_blank" rel="noopener">
-        <div class="top"><span class="name">丸紅</span><span class="code">8002</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>4,878円</b> <span class="down">-2.0%</span></span>
-          <span>100株 487,800円</span>
-        </div>
-        <div class="score">ファンダ ★★★☆☆ <small>3/5</small></div>
-        <div class="fund"><span class="f good">PER <b>14.8倍</b> ○</span><span class="f">PBR <b>1.78倍</b></span><span class="f good">ROE <b>14.2%</b> ○</span><span class="f">配当 <b>2.36%</b></span><span class="f good">売上の伸び <b>20.6%</b> ○</span><span class="f">時価総額 <b>7.9兆円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=9501" target="_blank" rel="noopener">
-        <div class="top"><span class="name">東京電力ホールディングス</span><span class="code">9501</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>525円</b> <span class="down">-4.4%</span></span>
-          <span>100株 52,540円</span>
-        </div>
-        <div class="score">ファンダ ★★★☆☆ <small>3/5</small></div>
-        <div class="fund"><span class="f">PER <b>-</b></span><span class="f good">PBR <b>0.25倍</b> ○</span><span class="f good">ROE <b>12.5%</b> ○</span><span class="f">配当 <b>-</b></span><span class="f good">売上の伸び <b>3.9%</b> ○</span><span class="f">時価総額 <b>8,421億円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=9001" target="_blank" rel="noopener">
-        <div class="top"><span class="name">東武鉄道</span><span class="code">9001</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>2,947円</b> <span class="down">-0.4%</span></span>
-          <span>100株 294,700円</span>
-        </div>
-        <div class="score">ファンダ ★★★★☆ <small>4/5</small></div>
-        <div class="fund"><span class="f good">PER <b>10.4倍</b> ○</span><span class="f good">PBR <b>0.92倍</b> ○</span><span class="f good">ROE <b>9.4%</b> ○</span><span class="f">配当 <b>2.54%</b></span><span class="f good">売上の伸び <b>5.2%</b> ○</span><span class="f">時価総額 <b>5,762億円</b></span></div>
-      </a>
-      <a class="card star" href="https://kabutan.jp/stock/?code=8604" target="_blank" rel="noopener">
-        <div class="top"><span class="name">野村ホールディングス</span><span class="code">8604</span></div>
-        <div class="reason">デッドクロス（5日平均が25日平均を下抜け）</div>
-        <div class="nums">
-          <span>終値 <b>1,550円</b> <span class="down">-2.0%</span></span>
-          <span>100株 154,950円</span>
-        </div>
-        <div class="score">ファンダ ★★★★★ <small>5/5</small></div>
-        <div class="fund"><span class="f good">PER <b>11.6倍</b> ○</span><span class="f good">PBR <b>1.18倍</b> ○</span><span class="f good">ROE <b>11.2%</b> ○</span><span class="f good">配当 <b>3.29%</b> ○</span><span class="f good">売上の伸び <b>31.2%</b> ○</span><span class="f">時価総額 <b>4.5兆円</b></span></div>
-      </a></section><section class="watch"><h2>🟡 注目 <small>2件</small></h2>
-      <a class="card" href="https://kabutan.jp/stock/?code=4385" target="_blank" rel="noopener">
-        <div class="top"><span class="name">メルカリ</span><span class="code">4385</span></div>
-        <div class="reason">売られすぎ（RSI 29）</div>
-        <div class="nums">
-          <span>終値 <b>3,554円</b> <span class="down">-3.9%</span></span>
-          <span>100株 355,400円</span>
-        </div>
-        <div class="score">ファンダ ★★☆☆☆ <small>2/5</small></div>
-        <div class="fund"><span class="f">PER <b>17.0倍</b></span><span class="f">PBR <b>4.28倍</b></span><span class="f good">ROE <b>29.9%</b> ○</span><span class="f">配当 <b>-</b></span><span class="f good">売上の伸び <b>27.7%</b> ○</span><span class="f">時価総額 <b>5,799億円</b></span></div>
-      </a>
-      <a class="card" href="https://kabutan.jp/stock/?code=7532" target="_blank" rel="noopener">
-        <div class="top"><span class="name">パン・パシフィック・インターナショナルホールディングス</span><span class="code">7532</span></div>
-        <div class="reason">売られすぎ（RSI 30）</div>
-        <div class="nums">
-          <span>終値 <b>716円</b> <span class="up">+0.4%</span></span>
-          <span>100株 71,600円</span>
-        </div>
-        <div class="score">ファンダ ★☆☆☆☆ <small>1/5</small></div>
-        <div class="fund"><span class="f">PER <b>19.5倍</b></span><span class="f">PBR <b>3.03倍</b></span><span class="f good">ROE <b>16.5%</b> ○</span><span class="f">配当 <b>1.40%</b></span><span class="f">売上の伸び <b>-</b></span><span class="f">時価総額 <b>2.1兆円</b></span></div>
-      </a></section><section class="caution"><h2>🟠 注意 <small>1件</small></h2>
-      <a class="card" href="https://kabutan.jp/stock/?code=5301" target="_blank" rel="noopener">
-        <div class="top"><span class="name">東海カーボン</span><span class="code">5301</span></div>
-        <div class="reason">買われすぎ（RSI 77）</div>
-        <div class="nums">
-          <span>終値 <b>2,273円</b> <span class="up">+6.8%</span></span>
-          <span>100株 227,300円</span>
-        </div>
-        <div class="score">ファンダ ★★☆☆☆ <small>2/5</small></div>
-        <div class="fund"><span class="f">PER <b>25.6倍</b></span><span class="f good">PBR <b>1.43倍</b> ○</span><span class="f">ROE <b>6.8%</b></span><span class="f">配当 <b>1.76%</b></span><span class="f good">売上の伸び <b>18.4%</b> ○</span><span class="f">時価総額 <b>4,599億円</b></span></div>
-      </a></section>
-  <p class="note">銘柄をタップすると株探の銘柄ページが開きます。<br>
+  <div class="meta">株価の日付：2026-09-24 ／ 更新：2026-09-24 18:45<br>
+  東証 3銘柄 → 株価取得 3銘柄 → 売買代金1億円以上 3銘柄を判定</div>
+  <div class="panel">
+    <div class="seg" id="mkt"><button data-m="" class="on">すべて</button><button data-m="プライム">プライム</button><button data-m="スタンダード">スタンダード</button><button data-m="グロース">グロース</button></div>
+    <div class="chk">
+      <label><input type="checkbox" id="star"> ★3つ以上</label>
+      <label><input type="checkbox" id="fav"> お気に入りだけ</label>
+    </div>
+  </div>
+  <section class="buy"><h2>🟢 買い <small class="cnt">0件</small></h2><p class="empty">なし</p></section><section class="sell"><h2>🔴 売り <small class="cnt">0件</small></h2><p class="empty">なし</p></section><section class="watch"><h2>🟡 注目 <small class="cnt">0件</small></h2><p class="empty">なし</p></section><section class="caution"><h2>🟠 注意 <small class="cnt">0件</small></h2><p class="empty">なし</p></section>
+  <p class="note">銘柄をタップすると株探の銘柄ページが開きます。⭐はwatchlist.txtに書いたお気に入り銘柄です。<br>
   <b>テクニカル</b>：5日・25日移動平均のクロス／出来高1.5倍以上での1年来高値更新／RSI（14日）30以下・75以上<br>
   <b>ファンダ★</b>：PER 15倍以下／PBR 1.5倍以下／ROE 8%以上／配当 3%以上／増収　を満たすごとに★1つ（○印）。「-」はデータが取れなかった項目です。<br>
+  売買代金が少ない銘柄は、値動きが荒く売買しにくいため除外しています（お気に入りは除外しません）。<br>
   業績データはYahoo Financeのもので、最新の決算とずれることがあります。シグナルは決めたルールに機械的に当てはまった銘柄の一覧で、値上がりを保証するものではありません。売買はご自身の判断で行ってください。</p>
 </main>
 <script>
-var cb = document.getElementById('star');
-cb.addEventListener('change', function () { document.body.classList.toggle('only-star', cb.checked); });
+var state = { m: "", star: false, fav: false };
+function apply() {
+  document.querySelectorAll("section").forEach(function (sec) {
+    var n = 0;
+    sec.querySelectorAll(".card").forEach(function (c) {
+      var show = (!state.m || c.dataset.market === state.m)
+        && (!state.star || +c.dataset.score >= 3)
+        && (!state.fav || c.dataset.fav === "1");
+      c.classList.toggle("hide", !show);
+      if (show) n++;
+    });
+    sec.querySelector(".cnt").textContent = n + "件";
+    sec.querySelector(".empty").hidden = n > 0;
+  });
+}
+document.querySelectorAll("#mkt button").forEach(function (b) {
+  b.addEventListener("click", function () {
+    document.querySelectorAll("#mkt button").forEach(function (x) { x.classList.remove("on"); });
+    b.classList.add("on"); state.m = b.dataset.m; apply();
+  });
+});
+document.getElementById("star").addEventListener("change", function (e) { state.star = e.target.checked; apply(); });
+document.getElementById("fav").addEventListener("change", function (e) { state.fav = e.target.checked; apply(); });
 </script>
 </body>
 </html>
