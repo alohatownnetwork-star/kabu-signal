@@ -41,7 +41,11 @@ DIV_MIN = 3            # 配当利回り（%）がこれ以上なら高配当
 GROWTH_MIN = 0         # 売上の伸び（前年比%）がこれより上なら増収
 # =====================================================
 
-JPX_URL = "https://www.jpx.co.jp/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+JPX_PAGE = "https://www.jpx.co.jp/markets/statistics-equities/misc/01.html"
+JPX_URLS = [
+    "https://www.jpx.co.jp/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xlsx",
+    "https://www.jpx.co.jp/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls",
+]
 JST = dt.timezone(dt.timedelta(hours=9))
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -66,18 +70,51 @@ def load_watchlist(path):
     return items
 
 
+def find_jpx_urls():
+    """東証のページから一覧ファイルのリンクを探す（ファイル名や形式が変わっても追従するため）。"""
+    import re
+    import requests
+    urls = []
+    try:
+        page = requests.get(JPX_PAGE, timeout=60, headers={"User-Agent": "Mozilla/5.0"})
+        page.encoding = page.apparent_encoding
+        for href in re.findall(r'href="([^"]+data_j\.xlsx?)"', page.text):
+            urls.append(href if href.startswith("http") else "https://www.jpx.co.jp" + href)
+    except Exception as e:
+        log(f"  東証のページを読めませんでした（{e}）")
+    for u in JPX_URLS:
+        if u not in urls:
+            urls.append(u)
+    return urls
+
+
 def load_universe():
     """東証（JPX）の上場銘柄一覧から、見張る市場の国内株式を取り出す。"""
-    try:
-        import xlrd  # noqa: F401
-    except ImportError:
-        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "xlrd"], check=False)
+    need = []
+    for mod in ("openpyxl", "xlrd"):
+        try:
+            __import__(mod)
+        except ImportError:
+            need.append(mod)
+    if need:
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", *need], check=False)
     import requests
-    r = requests.get(JPX_URL, timeout=60, headers={"User-Agent": "Mozilla/5.0"})
-    r.raise_for_status()
-    df = pd.read_excel(io.BytesIO(r.content), dtype=str)
+    df, last_err = None, None
+    for url in find_jpx_urls():
+        try:
+            r = requests.get(url, timeout=60, headers={"User-Agent": "Mozilla/5.0"})
+            r.raise_for_status()
+            df = pd.read_excel(io.BytesIO(r.content), dtype=str)
+            log(f"  一覧ファイル：{url}")
+            break
+        except Exception as e:
+            last_err = e
+    if df is None:
+        raise RuntimeError(last_err)
     col_mkt = [c for c in df.columns if "市場" in c][0]
     col_sec = [c for c in df.columns if "33業種区分" in c]
+    col_code = [c for c in df.columns if "コード" in c and "業種" not in c and "規模" not in c][0]
+    col_name = [c for c in df.columns if "銘柄名" in c][0]
     out = {}
     for _, row in df.iterrows():
         mkt = str(row[col_mkt])
@@ -86,8 +123,8 @@ def load_universe():
         m = next((m for m in MARKETS if mkt.startswith(m)), None)
         if not m:
             continue
-        code = str(row["コード"]).strip().upper()
-        out[code] = {"name": str(row["銘柄名"]).strip(), "market": m,
+        code = str(row[col_code]).strip().upper()
+        out[code] = {"name": str(row[col_name]).strip(), "market": m,
                      "sector": str(row[col_sec[0]]).strip() if col_sec else ""}
     return out
 
