@@ -31,6 +31,9 @@ RSI_LOW = 30           # これ以下で「売られすぎ」
 RSI_HIGH = 75          # これ以上で「買われすぎ」
 HIGH_DAYS = 245        # 高値更新を見る期間（約1年の営業日）
 VOLUME_RATIO = 1.5     # 出来高が20日平均の何倍以上なら「出来高を伴う」とみなすか
+BB_DAYS = 20           # ボリンジャーバンドの期間（日）
+BB_FROM, BB_TO = -2.0, -1.0  # GC予備軍：終値がこの範囲（-2σ〜-1σ）にある
+PRE_GAP = 3.0          # GC予備軍：短期平均が長期平均の何%下以内まで近づいているか
 UNIT = 100             # 売買単位（株）
 
 # ===== ファンダメンタルの合格ライン（満たすと ○ が付き、★が1つ増える） =====
@@ -162,6 +165,17 @@ def judge(df):
     if close.iloc[-1] > past_high and vr >= VOLUME_RATIO:
         out.append(("buy", f"出来高{vr:.1f}倍で1年来高値を更新"))
 
+    # 4) ゴールデンクロス予備軍（-2σ〜-1σにいて、短期平均が長期平均に下から近づいている）
+    mid = close.rolling(BB_DAYS).mean()
+    sd = close.rolling(BB_DAYS).std(ddof=0)
+    z = (close.iloc[-1] - mid.iloc[-1]) / sd.iloc[-1] if sd.iloc[-1] and sd.iloc[-1] > 0 else np.nan
+    gap = (l.iloc[-1] - s.iloc[-1]) / l.iloc[-1] * 100 if l.iloc[-1] else np.nan
+    if (not np.isnan(z) and BB_FROM <= z <= BB_TO
+            and s.iloc[-1] < l.iloc[-1] and gap <= PRE_GAP
+            and s.iloc[-1] > s.iloc[-2]
+            and (l.iloc[-1] - s.iloc[-1]) < (l.iloc[-2] - s.iloc[-2])):
+        out.append(("pre", f"ボリンジャー {z:+.1f}σ、{SHORT_MA}日平均が{LONG_MA}日平均まであと{gap:.1f}%（上向き）"))
+
     # 3) RSI（売られすぎ・買われすぎ）
     rv = r.iloc[-1]
     if not np.isnan(rv):
@@ -259,11 +273,12 @@ def fund_checks(f):
 
 LABEL = {
     "buy": "🟢 買い",
+    "pre": "🔵 GC予備軍",
     "sell": "🔴 売り",
     "watch": "🟡 注目",
     "caution": "🟠 注意",
 }
-ORDER = ["buy", "sell", "watch", "caution"]
+ORDER = ["buy", "pre", "sell", "watch", "caution"]
 
 
 def fmt(v, suffix="", digits=1):
@@ -290,12 +305,19 @@ def fund_html(f, checks):
     return f'<div class="fund">{cells}<span class="f">時価総額 <b>{fmt_cap(f["cap"])}</b></span></div>'
 
 
-def card_html(r):
+def _d(v):
+    return "" if v is None else f"{v:.4g}"
+
+
+def card_html(r, i):
     chg = r["change"]
     e = html.escape
+    f = r["fund"]
     fav = '<span class="favmark">⭐お気に入り</span>' if r["fav"] else ""
     return f"""
-      <a class="card" data-market="{e(r['market'])}" data-score="{r['score']}" data-fav="{1 if r['fav'] else 0}"
+      <a class="card" data-i="{i}" data-market="{e(r['market'])}" data-sector="{e(r['sector'])}" data-score="{r['score']}" data-fav="{1 if r['fav'] else 0}"
+         data-chg="{chg:.3f}" data-price="{r['close']:.1f}" data-turnover="{r['turnover']:.0f}" data-per="{_d(f['per'])}" data-pbr="{_d(f['pbr'])}"
+         data-div="{_d(f['div'])}" data-roe="{_d(f['roe'])}" data-growth="{_d(f['growth'])}" data-cap="{_d(f['cap'])}"
          href="https://kabutan.jp/stock/?code={e(r['code'])}" target="_blank" rel="noopener">
         <div class="top"><span class="name">{e(r['name'])}</span><span class="code">{e(r['code'])}</span></div>
         <div class="tags"><span class="mkt">{e(r['market'])}</span><span class="sec">{e(r['sector'])}</span>{fav}</div>
@@ -314,14 +336,20 @@ def build_html(rows, stats, updated):
     for k in ORDER:
         items = [r for r in rows if r["kind"] == k]
         # お気に入りを先頭に。買い・注目はファンダの点数が高い順、売り・注意は低い順
-        rev = k in ("buy", "watch")
+        rev = k in ("buy", "pre", "watch")
         items.sort(key=lambda x: (not x["fav"], -x["score"] if rev else x["score"], -x["turnover"]))
-        body = "".join(card_html(r) for r in items)
+        body = "".join(card_html(r, i) for i, r in enumerate(items))
         sections.append(
             f'<section class="{k}"><h2>{LABEL[k]} <small class="cnt">{len(items)}件</small></h2>'
             f'{body}<p class="empty"{"" if not items else " hidden"}>なし</p></section>')
 
     mkt_btns = "".join(f'<button data-m="{m}">{m}</button>' for m in MARKETS)
+    # 業種ごとのシグナル銘柄数（多い順）
+    sec_cnt = {}
+    for code, sec in {(r["code"], r["sector"]) for r in rows}:
+        sec_cnt[sec or "その他"] = sec_cnt.get(sec or "その他", 0) + 1
+    sec_opts = "".join(f'<option value="{html.escape(k)}">{html.escape(k)}（{v}）</option>'
+                       for k, v in sorted(sec_cnt.items(), key=lambda x: -x[1]))
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -330,7 +358,7 @@ def build_html(rows, stats, updated):
 <title>朝の売買シグナル</title>
 <style>
 :root {{ --bg:#f6f7f9; --card:#fff; --text:#1c1f24; --sub:#6b7280; --line:#e5e7eb; --chip:#f1f3f5;
-        --buy:#16a34a; --sell:#dc2626; --watch:#ca8a04; --caution:#ea580c; --up:#dc2626; --down:#2563eb;
+        --buy:#16a34a; --sell:#dc2626; --watch:#ca8a04; --caution:#ea580c; --pre:#2563eb; --up:#dc2626; --down:#2563eb;
         --good:#15803d; --goodbg:#dcfce7; --star:#b45309; --accent:#2563eb; --accentbg:#dbeafe; --fav:#a16207; --favbg:#fef3c7; }}
 @media (prefers-color-scheme: dark) {{
   :root {{ --bg:#111418; --card:#1b1f25; --text:#e8eaed; --sub:#9aa0a6; --line:#2c323a; --chip:#242a31;
@@ -349,6 +377,9 @@ h1 {{ font-size:20px; margin:4px 0; }}
 .seg button {{ font:inherit; font-size:13px; border:1px solid var(--line); background:var(--chip); color:var(--text);
               border-radius:999px; padding:4px 12px; cursor:pointer; }}
 .seg button.on {{ background:var(--accentbg); color:var(--accent); border-color:var(--accent); font-weight:600; }}
+.sel {{ display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:8px; }}
+.sel select {{ font:inherit; font-size:13px; width:100%; min-width:0; padding:6px 8px; border:1px solid var(--line);
+              border-radius:8px; background:var(--chip); color:var(--text); }}
 .chk {{ display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }}
 .chk label {{ display:flex; gap:6px; align-items:center; }}
 h2 {{ font-size:16px; margin:20px 0 8px; }}
@@ -359,6 +390,7 @@ h2 small {{ color:var(--sub); font-weight:normal; }}
 .card[data-fav="1"] {{ outline:2px solid var(--fav); outline-offset:-1px; }}
 .buy .card {{ border-left-color:var(--buy); }} .sell .card {{ border-left-color:var(--sell); }}
 .watch .card {{ border-left-color:var(--watch); }} .caution .card {{ border-left-color:var(--caution); }}
+.pre .card {{ border-left-color:var(--pre); }}
 .top {{ display:flex; justify-content:space-between; gap:8px; }}
 .name {{ font-weight:600; }} .code {{ color:var(--sub); font-size:13px; }}
 .tags {{ display:flex; gap:4px; flex-wrap:wrap; margin-top:4px; }}
@@ -385,6 +417,23 @@ h2 small {{ color:var(--sub); font-weight:normal; }}
   東証 {stats['universe']:,}銘柄 → 株価取得 {stats['downloaded']:,}銘柄 → 売買代金{MIN_TURNOVER / 1e8:g}億円以上 {stats['liquid']:,}銘柄を判定</div>
   <div class="panel">
     <div class="seg" id="mkt"><button data-m="" class="on">すべて</button>{mkt_btns}</div>
+    <div class="sel">
+      <select id="sector"><option value="">業種：すべて</option>{sec_opts}</select>
+      <select id="sort">
+        <option value="">並び順：おすすめ（★の多い順）</option>
+        <option value="chg:desc">前日比 高い順</option>
+        <option value="chg:asc">前日比 低い順</option>
+        <option value="per:asc">PER 安い順</option>
+        <option value="pbr:asc">PBR 安い順</option>
+        <option value="div:desc">配当利回り 高い順</option>
+        <option value="roe:desc">ROE 高い順</option>
+        <option value="growth:desc">売上の伸び 高い順</option>
+        <option value="price:asc">株価 安い順</option>
+        <option value="price:desc">株価 高い順</option>
+        <option value="cap:desc">時価総額 大きい順</option>
+        <option value="turnover:desc">売買代金 多い順</option>
+      </select>
+    </div>
     <div class="chk">
       <label><input type="checkbox" id="star"> ★3つ以上</label>
       <label><input type="checkbox" id="fav"> お気に入りだけ</label>
@@ -393,17 +442,35 @@ h2 small {{ color:var(--sub); font-weight:normal; }}
   {''.join(sections)}
   <p class="note">銘柄をタップすると株探の銘柄ページが開きます。⭐はwatchlist.txtに書いたお気に入り銘柄です。<br>
   <b>テクニカル</b>：{SHORT_MA}日・{LONG_MA}日移動平均のクロス／出来高{VOLUME_RATIO}倍以上での1年来高値更新／RSI（{RSI_DAYS}日）{RSI_LOW}以下・{RSI_HIGH}以上<br>
+  <b>GC予備軍</b>：終値がボリンジャーバンド（{BB_DAYS}日）の{BB_FROM:g}σ〜{BB_TO:g}σにあり、{SHORT_MA}日平均が上向きで{LONG_MA}日平均の{PRE_GAP:g}%下以内まで近づいている銘柄（まだクロスはしていません）<br>
   <b>ファンダ★</b>：PER {PER_MAX}倍以下／PBR {PBR_MAX}倍以下／ROE {ROE_MIN}%以上／配当 {DIV_MIN}%以上／増収　を満たすごとに★1つ（○印）。「-」はデータが取れなかった項目です。<br>
   売買代金が少ない銘柄は、値動きが荒く売買しにくいため除外しています（お気に入りは除外しません）。<br>
   業績データはYahoo Financeのもので、最新の決算とずれることがあります。シグナルは決めたルールに機械的に当てはまった銘柄の一覧で、値上がりを保証するものではありません。売買はご自身の判断で行ってください。</p>
 </main>
 <script>
-var state = {{ m: "", star: false, fav: false }};
+var state = {{ m: "", star: false, fav: false, sector: "", sort: "" }};
+function sortCards(sec) {{
+  var cards = Array.prototype.slice.call(sec.querySelectorAll(".card"));
+  var key = state.sort.split(":")[0], dir = state.sort.split(":")[1] === "asc" ? 1 : -1;
+  cards.sort(function (a, b) {{
+    if (!state.sort) return a.dataset.i - b.dataset.i;
+    if (a.dataset.fav !== b.dataset.fav) return b.dataset.fav - a.dataset.fav;
+    var x = a.dataset[key], y = b.dataset[key];
+    if (x === "" && y === "") return a.dataset.i - b.dataset.i;
+    if (x === "") return 1;
+    if (y === "") return -1;
+    return (x - y) * dir || a.dataset.i - b.dataset.i;
+  }});
+  var empty = sec.querySelector(".empty");
+  cards.forEach(function (c) {{ sec.insertBefore(c, empty); }});
+}}
 function apply() {{
   document.querySelectorAll("section").forEach(function (sec) {{
     var n = 0;
+    sortCards(sec);
     sec.querySelectorAll(".card").forEach(function (c) {{
       var show = (!state.m || c.dataset.market === state.m)
+        && (!state.sector || (c.dataset.sector || "その他") === state.sector)
         && (!state.star || +c.dataset.score >= 3)
         && (!state.fav || c.dataset.fav === "1");
       c.classList.toggle("hide", !show);
@@ -421,6 +488,8 @@ document.querySelectorAll("#mkt button").forEach(function (b) {{
 }});
 document.getElementById("star").addEventListener("change", function (e) {{ state.star = e.target.checked; apply(); }});
 document.getElementById("fav").addEventListener("change", function (e) {{ state.fav = e.target.checked; apply(); }});
+document.getElementById("sector").addEventListener("change", function (e) {{ state.sector = e.target.value; apply(); }});
+document.getElementById("sort").addEventListener("change", function (e) {{ state.sort = e.target.value; apply(); }});
 </script>
 </body>
 </html>
