@@ -1,0 +1,633 @@
+{
+ "updated": {
+  "data_date": "2026-09-24",
+  "run_at": "2026-09-24 18:20"
+ },
+ "signals": [
+  {
+   "code": "6526",
+   "name": "ソシオネクスト",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 2300.0,
+   "change": 14.999999999999991,
+   "cost": 230000.0,
+   "fund": {
+    "per": 46.558704,
+    "pbr": 3.1390233,
+    "roe": 5.9959996,
+    "div": 2.1739130434782608,
+    "growth": 13.0,
+    "cap": 403165020160.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 1
+  },
+  {
+   "code": "6752",
+   "name": "パナソニック ホールディングス",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 4508.0,
+   "change": 5.1551201306274885,
+   "cost": 450800.0,
+   "fund": {
+    "per": 55.640583,
+    "pbr": 1.9470261,
+    "roe": 5.25,
+    "div": 1.1978704525288377,
+    "growth": 6.4,
+    "cap": 10525841817600.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 1
+  },
+  {
+   "code": "6971",
+   "name": "京セラ",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 3650.0,
+   "change": 0.35743744844651815,
+   "cost": 365000.0,
+   "fund": {
+    "per": 35.588924,
+    "pbr": 1.4258202,
+    "roe": 5.059,
+    "div": 1.5342465753424657,
+    "growth": 9.9,
+    "cap": 4662973956096.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "7267",
+   "name": "本田技研工業",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 1733.0,
+   "change": 2.6050917702782783,
+   "cost": 173300.0,
+   "fund": {
+    "per": null,
+    "pbr": 0.54577625,
+    "roe": -0.7620000299999999,
+    "div": 4.039238315060588,
+    "growth": 13.5,
+    "cap": 6745841729536.0
+   },
+   "checks": {
+    "per": null,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "4902",
+   "name": "コニカミノルタ",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 661.0999755859375,
+   "change": 3.1035500623916024,
+   "cost": 66109.99755859375,
+   "fund": {
+    "per": 10.178599,
+    "pbr": 0.59385854,
+    "roe": 6.534999599999999,
+    "div": 2.7227349364287114,
+    "growth": 2.9000000000000004,
+    "cap": 326704824320.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "8308",
+   "name": "りそなホールディングス",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2419.0,
+   "change": -1.32571894758311,
+   "cost": 241900.0,
+   "fund": {
+    "per": 21.265934,
+    "pbr": 1.8032861,
+    "roe": 9.229999999999999,
+    "div": 1.5295576684580405,
+    "growth": 15.8,
+    "cap": 5415831601152.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8316",
+   "name": "三井住友フィナンシャルグループ",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 6679.0,
+   "change": -2.2108345534406992,
+   "cost": 667900.0,
+   "fund": {
+    "per": 14.975336,
+    "pbr": 1.5757298,
+    "roe": 8.569,
+    "div": 1.3475071118430901,
+    "growth": 24.8,
+    "cap": 25376927514624.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "8354",
+   "name": "ふくおかフィナンシャルグループ",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 7659.0,
+   "change": -1.1231603408210722,
+   "cost": 765900.0,
+   "fund": {
+    "per": 16.930832,
+    "pbr": 1.2861915,
+    "roe": 8.7139994,
+    "div": 2.7418723070896984,
+    "growth": 13.100000000000001,
+    "cap": 1447406600192.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "8697",
+   "name": "日本取引所グループ",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 2274.0,
+   "change": 1.722209796466112,
+   "cost": 227400.0,
+   "fund": {
+    "per": 38.680046,
+    "pbr": 7.2242994,
+    "roe": null,
+    "div": 3.430079155672823,
+    "growth": null,
+    "cap": 2324707147776.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": null,
+    "div": true,
+    "growth": null
+   },
+   "score": 1
+  },
+  {
+   "code": "8604",
+   "name": "野村ホールディングス",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1549.5,
+   "change": -1.992409867172673,
+   "cost": 154950.0,
+   "fund": {
+    "per": 11.6259,
+    "pbr": 1.1810727,
+    "roe": 11.158,
+    "div": 3.291384317521781,
+    "growth": 31.2,
+    "cap": 4528555950080.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 5
+  },
+  {
+   "code": "2002",
+   "name": "日清製粉グループ本社",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2013.5,
+   "change": 0.7757757757757666,
+   "cost": 201350.0,
+   "fund": {
+    "per": 17.772972,
+    "pbr": 1.0914894,
+    "roe": 6.0960002,
+    "div": 3.22820958529923,
+    "growth": 1.0999999999999999,
+    "cap": 563279953920.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "3382",
+   "name": "セブン&アイ・ホールディングス",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2000.0,
+   "change": -0.990099009900991,
+   "cost": 200000.0,
+   "fund": {
+    "per": 16.837852,
+    "pbr": 1.2533025,
+    "roe": 8.0469996,
+    "div": 3.0,
+    "growth": -14.7,
+    "cap": 4534117597184.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": false
+   },
+   "score": 3
+  },
+  {
+   "code": "7532",
+   "name": "パン・パシフィック・インターナショナルホールディングス",
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 30）",
+   "close": 716.0,
+   "change": 0.42075736325386526,
+   "cost": 71600.0,
+   "fund": {
+    "per": 19.49891,
+    "pbr": 3.0287263,
+    "roe": 16.478,
+    "div": 1.3966480446927374,
+    "growth": null,
+    "cap": 2140466577408.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": null
+   },
+   "score": 1
+  },
+  {
+   "code": "9843",
+   "name": "ニトリホールディングス",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 3034.0,
+   "change": 0.13201320132012473,
+   "cost": 303400.0,
+   "fund": {
+    "per": 19.21956,
+    "pbr": 1.7001141,
+    "roe": 9.2180006,
+    "div": 1.054713249835201,
+    "growth": -2.3,
+    "cap": 1714384797696.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": false
+   },
+   "score": 1
+  },
+  {
+   "code": "4324",
+   "name": "電通グループ",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 3561.0,
+   "change": -0.835421888053467,
+   "cost": 356100.0,
+   "fund": {
+    "per": null,
+    "pbr": 2.177019,
+    "roe": -34.882998,
+    "div": null,
+    "growth": 6.3,
+    "cap": 924386459648.0
+   },
+   "checks": {
+    "per": null,
+    "pbr": false,
+    "roe": false,
+    "div": null,
+    "growth": true
+   },
+   "score": 1
+  },
+  {
+   "code": "4385",
+   "name": "メルカリ",
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 29）",
+   "close": 3554.0,
+   "change": -3.919978372533117,
+   "cost": 355400.0,
+   "fund": {
+    "per": 17.005598,
+    "pbr": 4.28392,
+    "roe": 29.884002,
+    "div": null,
+    "growth": 27.700000000000003,
+    "cap": 579943923712.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": null,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "4661",
+   "name": "オリエンタルランド",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2956.5,
+   "change": -2.5864909390444835,
+   "cost": 295650.0,
+   "fund": {
+    "per": 39.759277,
+    "pbr": 4.2974696,
+    "roe": null,
+    "div": 0.5411804498562489,
+    "growth": 10.4,
+    "cap": 4847822176256.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": null,
+    "div": false,
+    "growth": true
+   },
+   "score": 1
+  },
+  {
+   "code": "4183",
+   "name": "三井化学",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 2150.0,
+   "change": -1.6468435498627643,
+   "cost": 215000.0,
+   "fund": {
+    "per": 23.47418,
+    "pbr": 0.89002407,
+    "roe": 8.045,
+    "div": 3.488372093023256,
+    "growth": 10.8,
+    "cap": 777304997888.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "4188",
+   "name": "三菱ケミカルグループ",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 1172.0,
+   "change": -1.4297729184188368,
+   "cost": 117200.0,
+   "fund": {
+    "per": null,
+    "pbr": 0.87424386,
+    "roe": 1.418,
+    "div": 2.7303754266211606,
+    "growth": 14.000000000000002,
+    "cap": 1592382193664.0
+   },
+   "checks": {
+    "per": null,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "5301",
+   "name": "東海カーボン",
+   "kind": "buy",
+   "reason": "出来高2.4倍で1年来高値を更新",
+   "close": 2273.0,
+   "change": 6.839012925969445,
+   "cost": 227300.0,
+   "fund": {
+    "per": 25.55943,
+    "pbr": 1.4306304,
+    "roe": 6.807,
+    "div": 1.759788825340959,
+    "growth": 18.4,
+    "cap": 459909234688.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "5301",
+   "name": "東海カーボン",
+   "kind": "caution",
+   "reason": "買われすぎ（RSI 77）",
+   "close": 2273.0,
+   "change": 6.839012925969445,
+   "cost": 227300.0,
+   "fund": {
+    "per": 25.55943,
+    "pbr": 1.4306304,
+    "roe": 6.807,
+    "div": 1.759788825340959,
+    "growth": 18.4,
+    "cap": 459909234688.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8002",
+   "name": "丸紅",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 4878.0,
+   "change": -1.9694533762057875,
+   "cost": 487800.0,
+   "fund": {
+    "per": 14.785851,
+    "pbr": 1.7785537,
+    "roe": 14.209,
+    "div": 2.3575235752357524,
+    "growth": 20.599999999999998,
+    "cap": 7926151380992.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "6302",
+   "name": "住友重機械工業",
+   "kind": "buy",
+   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
+   "close": 5921.0,
+   "change": -0.9534961525593855,
+   "cost": 592100.0,
+   "fund": {
+    "per": 17.49963,
+    "pbr": 1.0019479,
+    "roe": 6.068,
+    "div": 2.4489106569836174,
+    "growth": 18.0,
+    "cap": 702187110400.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "9001",
+   "name": "東武鉄道",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2947.0,
+   "change": -0.43918918918919303,
+   "cost": 294700.0,
+   "fund": {
+    "per": 10.414164,
+    "pbr": 0.91874486,
+    "roe": 9.385,
+    "div": 2.5449609772650152,
+    "growth": 5.2,
+    "cap": 576230850560.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "9501",
+   "name": "東京電力ホールディングス",
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 525.4000244140625,
+   "change": -4.4205907319166515,
+   "cost": 52540.00244140625,
+   "fund": {
+    "per": null,
+    "pbr": 0.24797313,
+    "roe": 12.517999,
+    "div": null,
+    "growth": 3.9,
+    "cap": 842059743232.0
+   },
+   "checks": {
+    "per": null,
+    "pbr": true,
+    "roe": true,
+    "div": null,
+    "growth": true
+   },
+   "score": 3
+  }
+ ]
+}
