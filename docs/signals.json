@@ -1,7 +1,7 @@
 {
  "updated": {
   "data_date": "2026-09-28",
-  "run_at": "2026-09-28 21:15"
+  "run_at": "2026-09-29 08:20"
  },
  "stats": {
   "universe": 3707,
@@ -22,21 +22,21 @@
    "turnover": 159006500.0,
    "cost": 470000.0,
    "fund": {
-    "per": null,
-    "pbr": null,
-    "roe": null,
-    "div": null,
-    "growth": null,
-    "cap": null
+    "per": 8.157315,
+    "pbr": 0.705661,
+    "roe": 9.178001,
+    "div": 3.404255319148936,
+    "growth": 13.5,
+    "cap": 55835422720.0
    },
    "checks": {
-    "per": null,
-    "pbr": null,
-    "roe": null,
-    "div": null,
-    "growth": null
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
    },
-   "score": 0
+   "score": 5
   },
   {
    "code": "1605",
@@ -51,21 +51,21 @@
    "turnover": 21309588545.0,
    "cost": 381500.0,
    "fund": {
-    "per": null,
-    "pbr": null,
-    "roe": null,
-    "div": null,
-    "growth": null,
-    "cap": null
+    "per": 10.309139,
+    "pbr": 0.8689482,
+    "roe": 9.2709996,
+    "div": 2.9357798165137616,
+    "growth": -2.6,
+    "cap": 4411371814912.0
    },
    "checks": {
-    "per": null,
-    "pbr": null,
-    "roe": null,
-    "div": null,
-    "growth": null
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": false
    },
-   "score": 0
+   "score": 3
   },
   {
    "code": "1662",
@@ -80,21 +80,79 @@
    "turnover": 2576007225.0,
    "cost": 185800.0,
    "fund": {
-    "per": null,
-    "pbr": null,
-    "roe": null,
-    "div": null,
-    "growth": null,
-    "cap": null
+    "per": 9.017229,
+    "pbr": 0.8042423,
+    "roe": 7.475,
+    "div": 2.4219590958019377,
+    "growth": -21.4,
+    "cap": 474237927424.0
    },
    "checks": {
-    "per": null,
-    "pbr": null,
-    "roe": null,
-    "div": null,
-    "growth": null
+    "per": true,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": false
    },
-   "score": 0
+   "score": 2
+  },
+  {
+   "code": "1815",
+   "name": "鉄建建設",
+   "market": "プライム",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2282.5,
+   "change": -50.0,
+   "turnover": 340512375.0,
+   "cost": 228250.0,
+   "fund": {
+    "per": 12.642278,
+    "pbr": 0.8379725,
+    "roe": 7.725,
+    "div": 5.038335158817087,
+    "growth": -8.9,
+    "cap": 63594680320.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": false
+   },
+   "score": 3
+  },
+  {
+   "code": "1815",
+   "name": "鉄建建設",
+   "market": "プライム",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 12）",
+   "close": 2282.5,
+   "change": -50.0,
+   "turnover": 340512375.0,
+   "cost": 228250.0,
+   "fund": {
+    "per": 12.642278,
+    "pbr": 0.8379725,
+    "roe": 7.725,
+    "div": 5.038335158817087,
+    "growth": -8.9,
+    "cap": 63594680320.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": false
+   },
+   "score": 3
   },
   {
    "code": "1833",
@@ -126,6 +184,93 @@
    "score": 3
   },
   {
+   "code": "1925",
+   "name": "大和ハウス工業",
+   "market": "プライム",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 7）",
+   "close": 2260.5,
+   "change": -50.329597890573496,
+   "turnover": 9020342885.0,
+   "cost": 226050.0,
+   "fund": {
+    "per": 7.9808645,
+    "pbr": 0.9623604,
+    "roe": 12.880999000000001,
+    "div": 4.06989604069896,
+    "growth": 9.0,
+    "cap": 2800941531136.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 5
+  },
+  {
+   "code": "1926",
+   "name": "ライト工業",
+   "market": "プライム",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 970.0,
+   "change": -75.1918158567775,
+   "turnover": 499515675.0,
+   "cost": 97000.0,
+   "fund": {
+    "per": 54.197517,
+    "pbr": 1.8862925,
+    "roe": 15.061,
+    "div": 5.463917525773196,
+    "growth": -3.3000000000000003,
+    "cap": 159284871168.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": false
+   },
+   "score": 2
+  },
+  {
+   "code": "1926",
+   "name": "ライト工業",
+   "market": "プライム",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 8）",
+   "close": 970.0,
+   "change": -75.1918158567775,
+   "turnover": 499515675.0,
+   "cost": 97000.0,
+   "fund": {
+    "per": 54.197517,
+    "pbr": 1.8862925,
+    "roe": 15.061,
+    "div": 5.463917525773196,
+    "growth": -3.3000000000000003,
+    "cap": 159284871168.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": false
+   },
+   "score": 2
+  },
+  {
    "code": "1963",
    "name": "日揮ホールディングス",
    "market": "プライム",
@@ -155,6 +300,64 @@
    "score": 3
   },
   {
+   "code": "1965",
+   "name": "テクノ菱和",
+   "market": "スタンダード",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2430.0,
+   "change": -66.62087912087912,
+   "turnover": 486870750.0,
+   "cost": 243000.0,
+   "fund": {
+    "per": 38.26571,
+    "pbr": 2.2120538,
+    "roe": 20.162001,
+    "div": 2.4691358024691357,
+    "growth": 9.1,
+    "cap": 149470740480.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "1965",
+   "name": "テクノ菱和",
+   "market": "スタンダード",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 17）",
+   "close": 2430.0,
+   "change": -66.62087912087912,
+   "turnover": 486870750.0,
+   "cost": 243000.0,
+   "fund": {
+    "per": 38.26571,
+    "pbr": 2.2120538,
+    "roe": 20.162001,
+    "div": 2.4691358024691357,
+    "growth": 9.1,
+    "cap": 149470740480.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
    "code": "1976",
    "name": "明星工業",
    "market": "プライム",
@@ -182,6 +385,35 @@
     "growth": false
    },
    "score": 4
+  },
+  {
+   "code": "2108",
+   "name": "日本甜菜製糖",
+   "market": "プライム",
+   "sector": "食料品",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 8）",
+   "close": 1733.3333740234375,
+   "change": -67.10942364281902,
+   "turnover": 212738400.28076172,
+   "cost": 173333.33740234375,
+   "fund": {
+    "per": 12.650222,
+    "pbr": 0.8027242,
+    "roe": 6.959,
+    "div": 5.19230757041796,
+    "growth": -9.0,
+    "cap": 60260237312.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": false
+   },
+   "score": 3
   },
   {
    "code": "2181",
@@ -240,6 +472,35 @@
     "growth": true
    },
    "score": 2
+  },
+  {
+   "code": "2282",
+   "name": "日本ハム",
+   "market": "プライム",
+   "sector": "食料品",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 7）",
+   "close": 2018.0,
+   "change": -66.61151555261416,
+   "turnover": 3422038135.0,
+   "cost": 201800.0,
+   "fund": {
+    "per": 50.253174,
+    "pbr": 1.0651342,
+    "roe": 6.7379996,
+    "div": 8.919722497522299,
+    "growth": 8.7,
+    "cap": 554241032192.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
   },
   {
    "code": "2612",
@@ -329,6 +590,93 @@
    "score": 2
   },
   {
+   "code": "278A",
+   "name": "Ｔｅｒｒａ　Ｄｒｏｎｅ",
+   "market": "グロース",
+   "sector": "精密機器",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 9765.0,
+   "change": -50.68181818181819,
+   "turnover": 78111841500.0,
+   "cost": 976500.0,
+   "fund": {
+    "per": null,
+    "pbr": 20.535543,
+    "roe": -36.466,
+    "div": null,
+    "growth": 23.1,
+    "cap": 211027509248.0
+   },
+   "checks": {
+    "per": null,
+    "pbr": false,
+    "roe": false,
+    "div": null,
+    "growth": true
+   },
+   "score": 1
+  },
+  {
+   "code": "285A",
+   "name": "キオクシアホールディングス",
+   "market": "プライム",
+   "sector": "電気機器",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 17780.0,
+   "change": -68.12477590534242,
+   "turnover": 1554724407650.0,
+   "cost": 1778000.0,
+   "fund": {
+    "per": 55.24851,
+    "pbr": 12.713888,
+    "roe": 87.10800400000001,
+    "div": null,
+    "growth": 415.5,
+    "cap": 29703127695360.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": null,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "285A",
+   "name": "キオクシアホールディングス",
+   "market": "プライム",
+   "sector": "電気機器",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 24）",
+   "close": 17780.0,
+   "change": -68.12477590534242,
+   "turnover": 1554724407650.0,
+   "cost": 1778000.0,
+   "fund": {
+    "per": 55.24851,
+    "pbr": 12.713888,
+    "roe": 87.10800400000001,
+    "div": null,
+    "growth": 415.5,
+    "cap": 29703127695360.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": null,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
    "code": "2983",
    "name": "アールプランナー",
    "market": "グロース",
@@ -385,6 +733,93 @@
     "growth": true
    },
    "score": 3
+  },
+  {
+   "code": "3099",
+   "name": "三越伊勢丹ホールディングス",
+   "market": "プライム",
+   "sector": "小売業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 12）",
+   "close": 1663.5,
+   "change": -50.23930601256357,
+   "turnover": 7475031070.0,
+   "cost": 166350.0,
+   "fund": {
+    "per": 15.564184,
+    "pbr": 1.9407712,
+    "roe": null,
+    "div": 3.606853020739405,
+    "growth": 3.8,
+    "cap": 1154412445696.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": null,
+    "div": true,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "3106",
+   "name": "倉敷紡績",
+   "market": "プライム",
+   "sector": "繊維製品",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2336.0,
+   "change": -80.01710863986314,
+   "turnover": 335278850.0,
+   "cost": 233600.0,
+   "fund": {
+    "per": 14.938736,
+    "pbr": 1.3635173,
+    "roe": 8.919,
+    "div": 2.8253424657534243,
+    "growth": 5.2,
+    "cap": 183505158144.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "3106",
+   "name": "倉敷紡績",
+   "market": "プライム",
+   "sector": "繊維製品",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 14）",
+   "close": 2336.0,
+   "change": -80.01710863986314,
+   "turnover": 335278850.0,
+   "cost": 233600.0,
+   "fund": {
+    "per": 14.938736,
+    "pbr": 1.3635173,
+    "roe": 8.919,
+    "div": 2.8253424657534243,
+    "growth": 5.2,
+    "cap": 183505158144.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 4
   },
   {
    "code": "3110",
@@ -648,6 +1083,64 @@
    "score": 3
   },
   {
+   "code": "3932",
+   "name": "アカツキ",
+   "market": "プライム",
+   "sector": "情報・通信業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1300.0,
+   "change": -66.32124352331607,
+   "turnover": 350621175.0,
+   "cost": 130000.0,
+   "fund": {
+    "per": 9.950249,
+    "pbr": 1.2076861,
+    "roe": 19.182,
+    "div": 9.230769230769232,
+    "growth": 121.6,
+    "cap": 46925848576.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 5
+  },
+  {
+   "code": "3932",
+   "name": "アカツキ",
+   "market": "プライム",
+   "sector": "情報・通信業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 17）",
+   "close": 1300.0,
+   "change": -66.32124352331607,
+   "turnover": 350621175.0,
+   "cost": 130000.0,
+   "fund": {
+    "per": 9.950249,
+    "pbr": 1.2076861,
+    "roe": 19.182,
+    "div": 9.230769230769232,
+    "growth": 121.6,
+    "cap": 46925848576.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 5
+  },
+  {
    "code": "3946",
    "name": "トーモク",
    "market": "プライム",
@@ -733,6 +1226,35 @@
     "growth": true
    },
    "score": 3
+  },
+  {
+   "code": "4062",
+   "name": "イビデン",
+   "market": "プライム",
+   "sector": "電気機器",
+   "fav": true,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 11155.0,
+   "change": -52.21674876847291,
+   "turnover": 176472717025.0,
+   "cost": 1115500.0,
+   "fund": {
+    "per": 108.69768,
+    "pbr": 11.447915,
+    "roe": 12.655,
+    "div": 0.17929179740026896,
+    "growth": 26.400000000000002,
+    "cap": 6562177875968.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
   },
   {
    "code": "4073",
@@ -965,6 +1487,64 @@
     "growth": false
    },
    "score": 2
+  },
+  {
+   "code": "4471",
+   "name": "三洋化成工業",
+   "market": "プライム",
+   "sector": "化学",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1617.5,
+   "change": -75.26758409785933,
+   "turnover": 772645800.0,
+   "cost": 161750.0,
+   "fund": {
+    "per": 9.039468,
+    "pbr": 0.8705601,
+    "roe": 7.858,
+    "div": 7.727975270479134,
+    "growth": 20.9,
+    "cap": 141039042560.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "4471",
+   "name": "三洋化成工業",
+   "market": "プライム",
+   "sector": "化学",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 14）",
+   "close": 1617.5,
+   "change": -75.26758409785933,
+   "turnover": 772645800.0,
+   "cost": 161750.0,
+   "fund": {
+    "per": 9.039468,
+    "pbr": 0.8705601,
+    "roe": 7.858,
+    "div": 7.727975270479134,
+    "growth": 20.9,
+    "cap": 141039042560.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": true
+   },
+   "score": 4
   },
   {
    "code": "4548",
@@ -1228,24 +1808,24 @@
    "score": 2
   },
   {
-   "code": "4746",
-   "name": "東計電算",
+   "code": "4667",
+   "name": "アイサンテクノロジー",
    "market": "スタンダード",
    "sector": "情報・通信業",
    "fav": false,
-   "kind": "caution",
-   "reason": "買われすぎ（RSI 75）",
-   "close": 7470.0,
-   "change": -0.9283819628647216,
-   "turnover": 320086450.0,
-   "cost": 747000.0,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1098.3333740234375,
+   "change": -66.81772283917107,
+   "turnover": 3487058546.0498047,
+   "cost": 109833.33740234375,
    "fund": {
-    "per": 23.696533,
-    "pbr": 2.337907,
-    "roe": 11.576,
-    "div": 2.610441767068273,
-    "growth": 15.7,
-    "cap": 135904854016.0
+    "per": 100.33495,
+    "pbr": 2.772612,
+    "roe": 8.0970004,
+    "div": 1.365705563972047,
+    "growth": 11.200000000000001,
+    "cap": 17398136832.0
    },
    "checks": {
     "per": false,
@@ -1255,6 +1835,64 @@
     "growth": true
    },
    "score": 2
+  },
+  {
+   "code": "4746",
+   "name": "東計電算",
+   "market": "スタンダード",
+   "sector": "情報・通信業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1867.5,
+   "change": -75.23209549071618,
+   "turnover": 320086450.0,
+   "cost": 186750.0,
+   "fund": {
+    "per": 23.696533,
+    "pbr": 2.337907,
+    "roe": 11.576,
+    "div": 10.441767068273093,
+    "growth": 15.7,
+    "cap": 135904854016.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "4746",
+   "name": "東計電算",
+   "market": "スタンダード",
+   "sector": "情報・通信業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 13）",
+   "close": 1867.5,
+   "change": -75.23209549071618,
+   "turnover": 320086450.0,
+   "cost": 186750.0,
+   "fund": {
+    "per": 23.696533,
+    "pbr": 2.337907,
+    "roe": 11.576,
+    "div": 10.441767068273093,
+    "growth": 15.7,
+    "cap": 135904854016.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
   },
   {
    "code": "4765",
@@ -1460,6 +2098,93 @@
    "score": 2
   },
   {
+   "code": "5232",
+   "name": "住友大阪セメント",
+   "market": "プライム",
+   "sector": "ガラス・土石製品",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1887.0,
+   "change": -67.15404699738903,
+   "turnover": 981226045.0,
+   "cost": 188700.0,
+   "fund": {
+    "per": 48.542274,
+    "pbr": 0.9202716,
+    "roe": 6.181,
+    "div": 2.1197668256491786,
+    "growth": null,
+    "cap": 179404242944.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": null
+   },
+   "score": 1
+  },
+  {
+   "code": "5232",
+   "name": "住友大阪セメント",
+   "market": "プライム",
+   "sector": "ガラス・土石製品",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 11）",
+   "close": 1887.0,
+   "change": -67.15404699738903,
+   "turnover": 981226045.0,
+   "cost": 188700.0,
+   "fund": {
+    "per": 48.542274,
+    "pbr": 0.9202716,
+    "roe": 6.181,
+    "div": 2.1197668256491786,
+    "growth": null,
+    "cap": 179404242944.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": null
+   },
+   "score": 1
+  },
+  {
+   "code": "5334",
+   "name": "日本特殊陶業",
+   "market": "プライム",
+   "sector": "ガラス・土石製品",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 13）",
+   "close": 3829.0,
+   "change": -49.757249704763154,
+   "turnover": 10094077600.0,
+   "cost": 382900.0,
+   "fund": {
+    "per": 13.422842,
+    "pbr": 1.7641307,
+    "roe": 24.791999,
+    "div": 2.742230347349177,
+    "growth": 19.900000000000002,
+    "cap": 1490630213632.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
    "code": "5410",
    "name": "合同製鐵",
    "market": "プライム",
@@ -1605,6 +2330,35 @@
    "score": 1
   },
   {
+   "code": "5706",
+   "name": "三井金属",
+   "market": "プライム",
+   "sector": "非鉄金属",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 13）",
+   "close": 2308.0,
+   "change": -89.95429815016323,
+   "turnover": 36737050325.0,
+   "cost": 230800.0,
+   "fund": {
+    "per": 144.72035,
+    "pbr": 3.1283436,
+    "roe": 30.622,
+    "div": 1.2131715771230502,
+    "growth": 19.3,
+    "cap": 1320574517248.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
    "code": "5802",
    "name": "住友電気工業",
    "market": "プライム",
@@ -1623,6 +2377,35 @@
     "div": 1.7727272727272727,
     "growth": 15.9,
     "cap": 6863291678720.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "5805",
+   "name": "ＳＷＣＣ",
+   "market": "プライム",
+   "sector": "非鉄金属",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 16）",
+   "close": 2680.0,
+   "change": -80.20679468242245,
+   "turnover": 3904425000.0,
+   "cost": 268000.0,
+   "fund": {
+    "per": 21.0566,
+    "pbr": 3.925678,
+    "roe": 23.683001,
+    "div": 2.5522388059701493,
+    "growth": 24.9,
+    "cap": 397019119616.0
    },
    "checks": {
     "per": false,
@@ -1779,6 +2562,64 @@
    "score": 2
   },
   {
+   "code": "6135",
+   "name": "牧野フライス製作所",
+   "market": "プライム",
+   "sector": "機械",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 3140.0,
+   "change": -80.06349206349206,
+   "turnover": 1762298950.0,
+   "cost": 314000.0,
+   "fund": {
+    "per": 17.54386,
+    "pbr": 1.3734441,
+    "roe": 10.319999600000001,
+    "div": 2.2929936305732483,
+    "growth": 25.900000000000002,
+    "cap": 366809939968.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "6135",
+   "name": "牧野フライス製作所",
+   "market": "プライム",
+   "sector": "機械",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 12）",
+   "close": 3140.0,
+   "change": -80.06349206349206,
+   "turnover": 1762298950.0,
+   "cost": 314000.0,
+   "fund": {
+    "per": 17.54386,
+    "pbr": 1.3734441,
+    "roe": 10.319999600000001,
+    "div": 2.2929936305732483,
+    "growth": 25.900000000000002,
+    "cap": 366809939968.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
    "code": "6226",
    "name": "守谷輸送機工業",
    "market": "スタンダード",
@@ -1924,6 +2765,35 @@
    "score": 1
   },
   {
+   "code": "6368",
+   "name": "オルガノ",
+   "market": "プライム",
+   "sector": "機械",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 12）",
+   "close": 2519.0,
+   "change": -80.14972419227739,
+   "turnover": 3284277850.0,
+   "cost": 251900.0,
+   "fund": {
+    "per": 102.04164,
+    "pbr": 4.081753,
+    "roe": 21.583,
+    "div": 5.240174672489083,
+    "growth": 10.7,
+    "cap": 579147661312.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
    "code": "6376",
    "name": "日機装",
    "market": "プライム",
@@ -1951,6 +2821,64 @@
     "growth": true
    },
    "score": 4
+  },
+  {
+   "code": "6379",
+   "name": "レイズネクスト",
+   "market": "プライム",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1008.3333129882812,
+   "change": -66.83114102012233,
+   "turnover": 670936353.5348511,
+   "cost": 100833.33129882812,
+   "fund": {
+    "per": 47.09637,
+    "pbr": 1.8495771,
+    "roe": 12.654000000000002,
+    "div": 7.735537346161895,
+    "growth": 8.6,
+    "cap": 163227041792.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "6379",
+   "name": "レイズネクスト",
+   "market": "プライム",
+   "sector": "建設業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 12）",
+   "close": 1008.3333129882812,
+   "change": -66.83114102012233,
+   "turnover": 670936353.5348511,
+   "cost": 100833.33129882812,
+   "fund": {
+    "per": 47.09637,
+    "pbr": 1.8495771,
+    "roe": 12.654000000000002,
+    "div": 7.735537346161895,
+    "growth": 8.6,
+    "cap": 163227041792.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
   },
   {
    "code": "6420",
@@ -2241,6 +3169,122 @@
     "growth": true
    },
    "score": 2
+  },
+  {
+   "code": "6622",
+   "name": "ダイヘン",
+   "market": "プライム",
+   "sector": "電気機器",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2594.0,
+   "change": -79.93812838360402,
+   "turnover": 2013657000.0,
+   "cost": 259400.0,
+   "fund": {
+    "per": 21.84417,
+    "pbr": 1.9491911,
+    "roe": null,
+    "div": 4.857363145720894,
+    "growth": 13.100000000000001,
+    "cap": 305236115456.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": null,
+    "div": true,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "6622",
+   "name": "ダイヘン",
+   "market": "プライム",
+   "sector": "電気機器",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 15）",
+   "close": 2594.0,
+   "change": -79.93812838360402,
+   "turnover": 2013657000.0,
+   "cost": 259400.0,
+   "fund": {
+    "per": 21.84417,
+    "pbr": 1.9491911,
+    "roe": null,
+    "div": 4.857363145720894,
+    "growth": 13.100000000000001,
+    "cap": 305236115456.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": null,
+    "div": true,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "6627",
+   "name": "テラプローブ",
+   "market": "スタンダード",
+   "sector": "電気機器",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2380.0,
+   "change": -79.79626485568761,
+   "turnover": 1077070550.0,
+   "cost": 238000.0,
+   "fund": {
+    "per": 22.826023,
+    "pbr": 4.958118,
+    "roe": 16.442,
+    "div": 4.621848739495799,
+    "growth": 49.3,
+    "cap": 109437247488.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "6627",
+   "name": "テラプローブ",
+   "market": "スタンダード",
+   "sector": "電気機器",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 21）",
+   "close": 2380.0,
+   "change": -79.79626485568761,
+   "turnover": 1077070550.0,
+   "cost": 238000.0,
+   "fund": {
+    "per": 22.826023,
+    "pbr": 4.958118,
+    "roe": 16.442,
+    "div": 4.621848739495799,
+    "growth": 49.3,
+    "cap": 109437247488.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
   },
   {
    "code": "6728",
@@ -2678,6 +3722,64 @@
    "score": 5
   },
   {
+   "code": "7242",
+   "name": "カヤバ",
+   "market": "プライム",
+   "sector": "輸送用機器",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1573.3333740234375,
+   "change": -66.63131762410526,
+   "turnover": 539301550.5737305,
+   "cost": 157333.33740234375,
+   "fund": {
+    "per": 7.5108824,
+    "pbr": 0.833742,
+    "roe": 11.2679996,
+    "div": 6.864406602131301,
+    "growth": 10.7,
+    "cap": 190894456832.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 5
+  },
+  {
+   "code": "7242",
+   "name": "カヤバ",
+   "market": "プライム",
+   "sector": "輸送用機器",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 8）",
+   "close": 1573.3333740234375,
+   "change": -66.63131762410526,
+   "turnover": 539301550.5737305,
+   "cost": 157333.33740234375,
+   "fund": {
+    "per": 7.5108824,
+    "pbr": 0.833742,
+    "roe": 11.2679996,
+    "div": 6.864406602131301,
+    "growth": 10.7,
+    "cap": 190894456832.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 5
+  },
+  {
    "code": "7256",
    "name": "河西工業",
    "market": "スタンダード",
@@ -2734,6 +3836,35 @@
     "growth": true
    },
    "score": 3
+  },
+  {
+   "code": "7282",
+   "name": "豊田合成",
+   "market": "プライム",
+   "sector": "輸送用機器",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 10）",
+   "close": 1052.800048828125,
+   "change": -80.1732570842161,
+   "turnover": 2506108031.286621,
+   "cost": 105280.0048828125,
+   "fund": {
+    "per": 53.306328,
+    "pbr": 1.061614,
+    "roe": 12.039,
+    "div": 9.783434196707116,
+    "growth": 16.7,
+    "cap": 617264054272.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 4
   },
   {
    "code": "7327",
@@ -2937,6 +4068,64 @@
     "growth": false
    },
    "score": 0
+  },
+  {
+   "code": "7433",
+   "name": "伯東",
+   "market": "プライム",
+   "sector": "卸売業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1863.3333740234375,
+   "change": -67.30994080660636,
+   "turnover": 484467850.7183838,
+   "cost": 186333.33740234375,
+   "fund": {
+    "per": 21.059347,
+    "pbr": 1.527361,
+    "roe": 8.738,
+    "div": 8.855098196610983,
+    "growth": 35.199999999999996,
+    "cap": 105616048128.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "7433",
+   "name": "伯東",
+   "market": "プライム",
+   "sector": "卸売業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 13）",
+   "close": 1863.3333740234375,
+   "change": -67.30994080660636,
+   "turnover": 484467850.7183838,
+   "cost": 186333.33740234375,
+   "fund": {
+    "per": 21.059347,
+    "pbr": 1.527361,
+    "roe": 8.738,
+    "div": 8.855098196610983,
+    "growth": 35.199999999999996,
+    "cap": 105616048128.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
   },
   {
    "code": "7475",
@@ -3200,6 +4389,35 @@
    "score": 1
   },
   {
+   "code": "7716",
+   "name": "ナカニシ",
+   "market": "スタンダード",
+   "sector": "精密機器",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 13）",
+   "close": 1497.0,
+   "change": -50.91803278688525,
+   "turnover": 818121425.0,
+   "cost": 149700.0,
+   "fund": {
+    "per": 222.27171,
+    "pbr": 2.038031,
+    "roe": 1.8689999999999998,
+    "div": 2.004008016032064,
+    "growth": 19.900000000000002,
+    "cap": 244931313664.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 1
+  },
+  {
    "code": "7729",
    "name": "東京精密",
    "market": "プライム",
@@ -3345,6 +4563,35 @@
    "score": 5
   },
   {
+   "code": "7911",
+   "name": "ＴＯＰＰＡＮホールディングス",
+   "market": "プライム",
+   "sector": "その他製品",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 17）",
+   "close": 2421.5,
+   "change": -50.762505083367216,
+   "turnover": 7578441625.0,
+   "cost": 242150.0,
+   "fund": {
+    "per": 21.321651,
+    "pbr": 0.984815,
+    "roe": 5.614,
+    "div": 1.1976047904191618,
+    "growth": 15.0,
+    "cap": 1362577719296.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
    "code": "7942",
    "name": "ＪＳＰ",
    "market": "プライム",
@@ -3432,6 +4679,35 @@
    "score": 2
   },
   {
+   "code": "7988",
+   "name": "ニフコ",
+   "market": "プライム",
+   "sector": "化学",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 8）",
+   "close": 2443.0,
+   "change": -50.68631408962454,
+   "turnover": 1418916925.0,
+   "cost": 244300.0,
+   "fund": {
+    "per": 27.027327,
+    "pbr": 1.523359,
+    "roe": 11.878,
+    "div": 3.4383954154727796,
+    "growth": 6.3,
+    "cap": 455737180160.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
    "code": "7990",
    "name": "グローブライド",
    "market": "プライム",
@@ -3466,17 +4742,17 @@
    "market": "プライム",
    "sector": "電気機器",
    "fav": false,
-   "kind": "buy",
-   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
-   "close": 56320.0,
-   "change": -0.35385704175513455,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 15）",
+   "close": 11264.0,
+   "change": -80.07077140835102,
    "turnover": 166268249750.0,
-   "cost": 5632000.0,
+   "cost": 1126400.0,
    "fund": {
     "per": 45.088825,
     "pbr": 11.949205,
     "roe": 30.929002,
-    "div": 1.328125,
+    "div": 6.640625,
     "growth": 33.300000000000004,
     "cap": 25585998888960.0
    },
@@ -3484,10 +4760,10 @@
     "per": false,
     "pbr": false,
     "roe": true,
-    "div": false,
+    "div": true,
     "growth": true
    },
-   "score": 2
+   "score": 3
   },
   {
    "code": "8058",
@@ -3546,6 +4822,64 @@
     "growth": false
    },
    "score": 4
+  },
+  {
+   "code": "8084",
+   "name": "ＲＹＯＤＥＮ",
+   "market": "プライム",
+   "sector": "卸売業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2437.5,
+   "change": -50.75757575757576,
+   "turnover": 192488675.0,
+   "cost": 243750.0,
+   "fund": {
+    "per": 19.949257,
+    "pbr": 1.1010358,
+    "roe": 6.229,
+    "div": 5.230769230769231,
+    "growth": 23.5,
+    "cap": 103933960192.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "8084",
+   "name": "ＲＹＯＤＥＮ",
+   "market": "プライム",
+   "sector": "卸売業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 15）",
+   "close": 2437.5,
+   "change": -50.75757575757576,
+   "turnover": 192488675.0,
+   "cost": 243750.0,
+   "fund": {
+    "per": 19.949257,
+    "pbr": 1.1010358,
+    "roe": 6.229,
+    "div": 5.230769230769231,
+    "growth": 23.5,
+    "cap": 103933960192.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
   },
   {
    "code": "8141",
@@ -3693,6 +5027,64 @@
    "score": 4
   },
   {
+   "code": "8174",
+   "name": "日本瓦斯",
+   "market": "プライム",
+   "sector": "小売業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1018.3333129882812,
+   "change": -66.98011306782486,
+   "turnover": 818903958.9370728,
+   "cost": 101833.33129882812,
+   "fund": {
+    "per": 22.361296,
+    "pbr": 5.0645375,
+    "roe": 22.860001,
+    "div": 3.6333879612976765,
+    "growth": 8.799999999999999,
+    "cap": 325351997440.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "8174",
+   "name": "日本瓦斯",
+   "market": "プライム",
+   "sector": "小売業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 9）",
+   "close": 1018.3333129882812,
+   "change": -66.98011306782486,
+   "turnover": 818903958.9370728,
+   "cost": 101833.33129882812,
+   "fund": {
+    "per": 22.361296,
+    "pbr": 5.0645375,
+    "roe": 22.860001,
+    "div": 3.6333879612976765,
+    "growth": 8.799999999999999,
+    "cap": 325351997440.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
    "code": "8303",
    "name": "ＳＢＩ新生銀行",
    "market": "プライム",
@@ -3756,17 +5148,17 @@
    "market": "プライム",
    "sector": "銀行業",
    "fav": false,
-   "kind": "buy",
-   "reason": "ゴールデンクロス（5日平均が25日平均を上抜け）",
-   "close": 6990.0,
-   "change": 1.0261598496892566,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 14）",
+   "close": 3495.0,
+   "change": -49.486920075155375,
    "turnover": 86817431030.0,
-   "cost": 699000.0,
+   "cost": 349500.0,
    "fund": {
     "per": 14.975336,
     "pbr": 1.5757298,
     "roe": 8.569,
-    "div": 1.2875536480686696,
+    "div": 2.575107296137339,
     "growth": 24.8,
     "cap": 25376927514624.0
    },
@@ -3867,6 +5259,64 @@
    "score": 2
   },
   {
+   "code": "8343",
+   "name": "秋田銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2068.0,
+   "change": -79.82439024390244,
+   "turnover": 1530739250.0,
+   "cost": 206800.0,
+   "fund": {
+    "per": 23.696684,
+    "pbr": 0.9742485,
+    "roe": 4.9850002,
+    "div": 1.9342359767891684,
+    "growth": -9.0,
+    "cap": 182427156480.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": false
+   },
+   "score": 1
+  },
+  {
+   "code": "8343",
+   "name": "秋田銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 19）",
+   "close": 2068.0,
+   "change": -79.82439024390244,
+   "turnover": 1530739250.0,
+   "cost": 206800.0,
+   "fund": {
+    "per": 23.696684,
+    "pbr": 0.9742485,
+    "roe": 4.9850002,
+    "div": 1.9342359767891684,
+    "growth": -9.0,
+    "cap": 182427156480.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": false
+   },
+   "score": 1
+  },
+  {
    "code": "8344",
    "name": "山形銀行",
    "market": "プライム",
@@ -3954,6 +5404,238 @@
    "score": 2
   },
   {
+   "code": "8360",
+   "name": "山梨中央銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1538.0,
+   "change": -79.81627296587926,
+   "turnover": 1059267750.0,
+   "cost": 153800.0,
+   "fund": {
+    "per": 117.100655,
+    "pbr": 0.98396283,
+    "roe": 4.987,
+    "div": 2.1196358907672304,
+    "growth": 30.5,
+    "cap": 235964186624.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8360",
+   "name": "山梨中央銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 14）",
+   "close": 1538.0,
+   "change": -79.81627296587926,
+   "turnover": 1059267750.0,
+   "cost": 153800.0,
+   "fund": {
+    "per": 117.100655,
+    "pbr": 0.98396283,
+    "roe": 4.987,
+    "div": 2.1196358907672304,
+    "growth": 30.5,
+    "cap": 235964186624.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8361",
+   "name": "大垣共立銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1768.0,
+   "change": -80.0225988700565,
+   "turnover": 1493969850.0,
+   "cost": 176800.0,
+   "fund": {
+    "per": 19.011406,
+    "pbr": 0.86973846,
+    "roe": 5.629,
+    "div": 1.6968325791855203,
+    "growth": 19.7,
+    "cap": 363587239936.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8361",
+   "name": "大垣共立銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 14）",
+   "close": 1768.0,
+   "change": -80.0225988700565,
+   "turnover": 1493969850.0,
+   "cost": 176800.0,
+   "fund": {
+    "per": 19.011406,
+    "pbr": 0.86973846,
+    "roe": 5.629,
+    "div": 1.6968325791855203,
+    "growth": 19.7,
+    "cap": 363587239936.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8370",
+   "name": "紀陽銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1806.6666259765625,
+   "change": -66.48113866462778,
+   "turnover": 778121498.706665,
+   "cost": 180666.66259765625,
+   "fund": {
+    "per": 47.846046,
+    "pbr": 1.4077966,
+    "roe": 9.363000000000001,
+    "div": 5.756457694223725,
+    "growth": 29.4,
+    "cap": 349119938560.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "8370",
+   "name": "紀陽銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 14）",
+   "close": 1806.6666259765625,
+   "change": -66.48113866462778,
+   "turnover": 778121498.706665,
+   "cost": 180666.66259765625,
+   "fund": {
+    "per": 47.846046,
+    "pbr": 1.4077966,
+    "roe": 9.363000000000001,
+    "div": 5.756457694223725,
+    "growth": 29.4,
+    "cap": 349119938560.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "8377",
+   "name": "ほくほくフィナンシャルグループ",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 879.4000244140625,
+   "change": -90.02382275196753,
+   "turnover": 3613191436.060791,
+   "cost": 87940.00244140625,
+   "fund": {
+    "per": 18.248251,
+    "pbr": 1.4002519,
+    "roe": 9.722,
+    "div": 1.705708390216885,
+    "growth": 24.6,
+    "cap": 1050145718272.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "8377",
+   "name": "ほくほくフィナンシャルグループ",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 13）",
+   "close": 879.4000244140625,
+   "change": -90.02382275196753,
+   "turnover": 3613191436.060791,
+   "cost": 87940.00244140625,
+   "fund": {
+    "per": 18.248251,
+    "pbr": 1.4002519,
+    "roe": 9.722,
+    "div": 1.705708390216885,
+    "growth": 24.6,
+    "cap": 1050145718272.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
    "code": "8387",
    "name": "四国銀行",
    "market": "プライム",
@@ -3981,6 +5663,64 @@
     "growth": true
    },
    "score": 4
+  },
+  {
+   "code": "8388",
+   "name": "阿波銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2226.0,
+   "change": -79.83695652173914,
+   "turnover": 1527579500.0,
+   "cost": 222600.0,
+   "fund": {
+    "per": 28.042328,
+    "pbr": 1.0441942,
+    "roe": 4.662,
+    "div": 1.9766397124887691,
+    "growth": 77.7,
+    "cap": 432695672832.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8388",
+   "name": "阿波銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 17）",
+   "close": 2226.0,
+   "change": -79.83695652173914,
+   "turnover": 1527579500.0,
+   "cost": 222600.0,
+   "fund": {
+    "per": 28.042328,
+    "pbr": 1.0441942,
+    "roe": 4.662,
+    "div": 1.9766397124887691,
+    "growth": 77.7,
+    "cap": 432695672832.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
   },
   {
    "code": "8393",
@@ -4046,17 +5786,46 @@
    "market": "プライム",
    "sector": "銀行業",
    "fav": false,
-   "kind": "buy",
-   "reason": "出来高1.5倍で1年来高値を更新",
-   "close": 9130.0,
-   "change": 0.7726269315673218,
-   "turnover": 417892300.0,
-   "cost": 913000.0,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 3043.333251953125,
+   "change": -66.40912525438051,
+   "turnover": 417892299.11987305,
+   "cost": 304333.3251953125,
    "fund": {
     "per": 17.285118,
     "pbr": 0.7777953,
     "roe": 5.465,
-    "div": 0.7009857612267251,
+    "div": 2.102957339914274,
+    "growth": 23.0,
+    "cap": 73474588672.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": false,
+    "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8551",
+   "name": "北日本銀行",
+   "market": "プライム",
+   "sector": "銀行業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 20）",
+   "close": 3043.333251953125,
+   "change": -66.40912525438051,
+   "turnover": 417892299.11987305,
+   "cost": 304333.3251953125,
+   "fund": {
+    "per": 17.285118,
+    "pbr": 0.7777953,
+    "roe": 5.465,
+    "div": 2.102957339914274,
     "growth": 23.0,
     "cap": 73474588672.0
    },
@@ -4123,6 +5892,64 @@
     "pbr": true,
     "roe": false,
     "div": false,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8766",
+   "name": "東京海上ホールディングス",
+   "market": "プライム",
+   "sector": "保険業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 538.3333129882812,
+   "change": -93.26409768533182,
+   "turnover": 47278780728.81897,
+   "cost": 53833.331298828125,
+   "fund": {
+    "per": 429.74985,
+    "pbr": 1.8716447,
+    "roe": null,
+    "div": 24.273065932823755,
+    "growth": 0.1,
+    "cap": 15340633325568.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": null,
+    "div": true,
+    "growth": true
+   },
+   "score": 2
+  },
+  {
+   "code": "8766",
+   "name": "東京海上ホールディングス",
+   "market": "プライム",
+   "sector": "保険業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 9）",
+   "close": 538.3333129882812,
+   "change": -93.26409768533182,
+   "turnover": 47278780728.81897,
+   "cost": 53833.331298828125,
+   "fund": {
+    "per": 429.74985,
+    "pbr": 1.8716447,
+    "roe": null,
+    "div": 24.273065932823755,
+    "growth": 0.1,
+    "cap": 15340633325568.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": false,
+    "roe": null,
+    "div": true,
     "growth": true
    },
    "score": 2
@@ -4271,6 +6098,93 @@
     "growth": false
    },
    "score": 2
+  },
+  {
+   "code": "9065",
+   "name": "山九",
+   "market": "プライム",
+   "sector": "陸運業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 7）",
+   "close": 1633.0,
+   "change": -80.14348249027238,
+   "turnover": 1745276685.0,
+   "cost": 163300.0,
+   "fund": {
+    "per": 66.93172,
+    "pbr": 1.3376752,
+    "roe": 11.420999499999999,
+    "div": 9.552969993876301,
+    "growth": 0.4,
+    "cap": 409432719360.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "9068",
+   "name": "丸全昭和運輸",
+   "market": "プライム",
+   "sector": "陸運業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 3675.0,
+   "change": -50.135685210312076,
+   "turnover": 181551100.0,
+   "cost": 367500.0,
+   "fund": {
+    "per": 11.248386,
+    "pbr": 0.97269875,
+    "roe": 9.041,
+    "div": 3.2653061224489797,
+    "growth": 4.7,
+    "cap": 141120258048.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 5
+  },
+  {
+   "code": "9068",
+   "name": "丸全昭和運輸",
+   "market": "プライム",
+   "sector": "陸運業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 10）",
+   "close": 3675.0,
+   "change": -50.135685210312076,
+   "turnover": 181551100.0,
+   "cost": 367500.0,
+   "fund": {
+    "per": 11.248386,
+    "pbr": 0.97269875,
+    "roe": 9.041,
+    "div": 3.2653061224489797,
+    "growth": 4.7,
+    "cap": 141120258048.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": true
+   },
+   "score": 5
   },
   {
    "code": "9110",
@@ -4500,6 +6414,122 @@
     "pbr": true,
     "roe": false,
     "div": true,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "9956",
+   "name": "バローホールディングス",
+   "market": "プライム",
+   "sector": "小売業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 1702.5,
+   "change": -49.480712166172104,
+   "turnover": 584042725.0,
+   "cost": 170250.0,
+   "fund": {
+    "per": 10.88729,
+    "pbr": 0.94731563,
+    "roe": 10.284001,
+    "div": 2.3494860499265786,
+    "growth": 13.4,
+    "cap": 197736087552.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "9956",
+   "name": "バローホールディングス",
+   "market": "プライム",
+   "sector": "小売業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 13）",
+   "close": 1702.5,
+   "change": -49.480712166172104,
+   "turnover": 584042725.0,
+   "cost": 170250.0,
+   "fund": {
+    "per": 10.88729,
+    "pbr": 0.94731563,
+    "roe": 10.284001,
+    "div": 2.3494860499265786,
+    "growth": 13.4,
+    "cap": 197736087552.0
+   },
+   "checks": {
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 4
+  },
+  {
+   "code": "9987",
+   "name": "スズケン",
+   "market": "プライム",
+   "sector": "卸売業",
+   "fav": false,
+   "kind": "sell",
+   "reason": "デッドクロス（5日平均が25日平均を下抜け）",
+   "close": 2646.5,
+   "change": -50.863349424433714,
+   "turnover": 964625880.0,
+   "cost": 264650.0,
+   "fund": {
+    "per": 19.398937,
+    "pbr": 0.86120886,
+    "roe": 9.227,
+    "div": 2.2671452862270924,
+    "growth": 6.1,
+    "cap": 352959397888.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": false,
+    "growth": true
+   },
+   "score": 3
+  },
+  {
+   "code": "9987",
+   "name": "スズケン",
+   "market": "プライム",
+   "sector": "卸売業",
+   "fav": false,
+   "kind": "watch",
+   "reason": "売られすぎ（RSI 13）",
+   "close": 2646.5,
+   "change": -50.863349424433714,
+   "turnover": 964625880.0,
+   "cost": 264650.0,
+   "fund": {
+    "per": 19.398937,
+    "pbr": 0.86120886,
+    "roe": 9.227,
+    "div": 2.2671452862270924,
+    "growth": 6.1,
+    "cap": 352959397888.0
+   },
+   "checks": {
+    "per": false,
+    "pbr": true,
+    "roe": true,
+    "div": false,
     "growth": true
    },
    "score": 3
