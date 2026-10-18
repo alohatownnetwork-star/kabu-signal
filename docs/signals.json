@@ -1,7 +1,7 @@
 {
  "updated": {
   "data_date": "2026-10-16",
-  "run_at": "2026-10-19 08:08"
+  "run_at": "2026-10-19 08:43"
  },
  "stats": {
   "universe": 3702,
@@ -23,20 +23,20 @@
    "cost": 73300.0,
    "fund": {
     "per": null,
-    "pbr": 2.1814513,
-    "roe": -3.598,
+    "pbr": 2.0766284,
+    "roe": null,
     "div": 0.8185538881309686,
-    "growth": 34.5,
-    "cap": 4005925120.0
+    "growth": null,
+    "cap": 3813432576.0
    },
    "checks": {
     "per": null,
     "pbr": false,
-    "roe": false,
+    "roe": null,
     "div": false,
-    "growth": true
+    "growth": null
    },
-   "score": 1
+   "score": 0
   },
   {
    "code": "1514",
@@ -51,21 +51,21 @@
    "turnover": 160426710.0,
    "cost": 61100.0,
    "fund": {
-    "per": null,
-    "pbr": null,
-    "roe": null,
-    "div": null,
-    "growth": null,
-    "cap": null
+    "per": 13.568732,
+    "pbr": 1.3037503,
+    "roe": 9.925,
+    "div": 3.273322422258593,
+    "growth": -1.5,
+    "cap": 36551942144.0
    },
    "checks": {
-    "per": null,
-    "pbr": null,
-    "roe": null,
-    "div": null,
-    "growth": null
+    "per": true,
+    "pbr": true,
+    "roe": true,
+    "div": true,
+    "growth": false
    },
-   "score": 0
+   "score": 4
   },
   {
    "code": "1783",
@@ -81,20 +81,20 @@
    "cost": 7000.0,
    "fund": {
     "per": null,
-    "pbr": null,
-    "roe": null,
+    "pbr": 1.7498689,
+    "roe": -0.30899997999999995,
     "div": null,
-    "growth": null,
-    "cap": null
+    "growth": 8.1,
+    "cap": 13531599872.0
    },
    "checks": {
     "per": null,
-    "pbr": null,
-    "roe": null,
+    "pbr": false,
+    "roe": false,
     "div": null,
-    "growth": null
+    "growth": true
    },
-   "score": 0
+   "score": 1
   },
   {
    "code": "2060",
